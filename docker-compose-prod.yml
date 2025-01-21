@@ -1,0 +1,8 @@
+services: # 컨테이너 설정 정보
+  backend:
+    container_name: gaji-server
+    image: shim1510/gaji-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    ports:
+      - 8080:8080
