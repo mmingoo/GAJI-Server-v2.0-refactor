@@ -5,7 +5,6 @@ import gaji.service.jwt.filter.JWTUtil;
 import gaji.service.jwt.service.CustomSuccessHandler;
 import gaji.service.jwt.service.TokenProviderService;
 import gaji.service.oauth2.dto.CustomOAuth2User;
-import gaji.service.oauth2.dto.OAuthUserDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -36,17 +35,14 @@ public class Test2Controller {
             return ResponseEntity.ok(userId);
 
     }
-    @GetMapping("/auth-success")
-    public void testAuthSuccess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        OAuthUserDTO oAuthUserDTO = new OAuthUserDTO();
-        oAuthUserDTO.setUsernameId("testUser");
-        oAuthUserDTO.setRole(ServiceRole.ROLE_USER); // Role은 enum이라고 가정합니다.
-
-        CustomOAuth2User customOAuth2User = new CustomOAuth2User(oAuthUserDTO);
-        Authentication authentication = new TestAuthentication(customOAuth2User);
-
-        customSuccessHandler.onAuthenticationSuccess(request, response, authentication);
-    }
+//    @GetMapping("/auth-success")
+//    public void testAuthSuccess(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+//
+//        CustomOAuth2User customOAuth2User = new CustomOAuth2User("testUser", ServiceRole.ROLE_USER);
+//        Authentication authentication = new TestAuthentication(customOAuth2User);
+//
+//        customSuccessHandler.onAuthenticationSuccess(request, response, authentication);
+//    }
 
     private static class TestAuthentication implements Authentication {
         private final CustomOAuth2User customOAuth2User;

@@ -17,9 +17,9 @@ import gaji.service.domain.room.entity.Room;
 import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.roomBoard.entity.RoomPost.RoomPostFile;
 import gaji.service.domain.studyMate.entity.*;
-import gaji.service.oauth2.dto.TransferUserDTO;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
@@ -40,10 +40,10 @@ public class User extends BaseEntity {
     private Long id;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<SearchKeyword> searchKeywordList = new ArrayList<>();
+    private List<SearchKeyword> searchKeywordList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<RoomEvent> roomEventList = new ArrayList<>();
+    private List<RoomEvent> roomEventList;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL )
     private List<StudyMate> studyMateList;
@@ -52,43 +52,43 @@ public class User extends BaseEntity {
 //    private List<RoomPostBookmark> roomPostBookmarkList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL )
-    private List<Room> recruitPostList = new ArrayList<>();
+    private List<Room> recruitPostList;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL )
-    private List<RecruitPostBookmark> recruitPostBookmarkList = new ArrayList<>();
+    private List<RecruitPostBookmark> recruitPostBookmarkList;
 
     @OneToMany(mappedBy = "user")
-    private List<StudyApplicant> studyApplicantList = new ArrayList<>();
+    private List<StudyApplicant> studyApplicantList;
 
     @OneToMany(mappedBy = "user")
-    private List<RoomPostFile> roomPostFileList = new ArrayList<>();
+    private List<RoomPostFile> roomPostFileList
 
     @OneToMany(mappedBy = "user")
-    private List<RecruitPostLikes> recruitPostLikesList = new ArrayList<>();
+    private List<RecruitPostLikes> recruitPostLikesList;
 
     @OneToMany(mappedBy = "user")
-    private List<CommunityComment> commentList = new ArrayList<>();
+    private List<CommunityComment> commentList;
 
     @OneToMany(mappedBy = "user")
-    private List<CommnuityPost> postList = new ArrayList<>();
+    private List<CommnuityPost> postList;
 
 //    @OneToMany(mappedBy = "user")
 //    private List<PostBookmark> postBookmarkList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<PostFile> postFileList = new ArrayList<>();
+    private List<PostFile> postFileList;
 
     @OneToMany(mappedBy = "user")
-    private List<PostLikes> postLikesList = new ArrayList<>();
+    private List<PostLikes> postLikesList;
 
     @OneToMany(mappedBy = "user")
-    private List<Report> reportList = new ArrayList<>();
+    private List<Report> reportList;
 
     @OneToMany(mappedBy = "user")
-    private List<UserAssignment> userAssignmentList = new ArrayList<>();
+    private List<UserAssignment> userAssignmentList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<WeeklyUserProgress> weeklyUserProgressList = new ArrayList<>();
+    private List<WeeklyUserProgress> weeklyUserProgressList;
 
     @ColumnDefault("가지돌이")
     private String nickname;
@@ -108,35 +108,6 @@ public class User extends BaseEntity {
 
     private String usernameId;
 
-    public static User createUser(TransferUserDTO transferUserDTO) {
-        User user = new User();
-        user.setUsernameId(transferUserDTO.getUsernameId());
-        user.setRole(transferUserDTO.getRole());
-        user.setSocialType(transferUserDTO.getSocialType());
-        user.setStatus(transferUserDTO.getUserActive());
-
-        return user;
-    }
-    private void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-    private void setStatus(UserActive userActive) {
-        this.status = userActive;
-    }
-
-    private void setSocialType(SocialType socialType) {
-        this.socialType = socialType;
-    }
-
-    private void setRole(ServiceRole role) {
-        this.role = role;
-    }
-
-    public void setUsernameId(String usernameId) {
-
-        this.usernameId = usernameId;
-    }
-
     public void updateStatus(UserActive status) {
         this.status=status;
         this.inactiveTime=LocalDateTime.now();
@@ -145,5 +116,32 @@ public class User extends BaseEntity {
     public void updateNickname(String nickname) {
         this.nickname = nickname;
     }
+
+    @Builder
+    public User(String usernameId, SocialType socialType, ServiceRole role) {
+        this.usernameId = usernameId;
+        this.socialType = socialType;
+        this.role = role;
+        this.status = UserActive.ACTIVE;
+        this.nickname = "가지돌이";
+
+        // 컬렉션 필드 초기화 (null 방지)
+        this.searchKeywordList = new ArrayList<>();
+        this.roomEventList = new ArrayList<>();
+        this.studyMateList = new ArrayList<>();
+        this.recruitPostList = new ArrayList<>();
+        this.recruitPostBookmarkList = new ArrayList<>();
+        this.studyApplicantList = new ArrayList<>();
+        this.recruitPostLikesList = new ArrayList<>();
+        this.commentList = new ArrayList<>();
+        this.postList = new ArrayList<>();
+        this.postFileList = new ArrayList<>();
+        this.postLikesList = new ArrayList<>();
+        this.reportList = new ArrayList<>();
+        this.userAssignmentList = new ArrayList<>();
+        this.weeklyUserProgressList = new ArrayList<>();
+        this.roomPostFileList = new ArrayList<>();
+    }
+
 
 }

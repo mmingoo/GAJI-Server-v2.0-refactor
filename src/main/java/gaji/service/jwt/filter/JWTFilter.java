@@ -2,7 +2,6 @@ package gaji.service.jwt.filter;
 
 import gaji.service.domain.enums.ServiceRole;
 import gaji.service.oauth2.dto.CustomOAuth2User;
-import gaji.service.oauth2.dto.OAuthUserDTO;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -66,13 +65,12 @@ public class JWTFilter extends OncePerRequestFilter {
         }
 
 // username, role 값을 획득
-        String username = jwtUtil.getUsername(accessToken);
+        String usernameId = jwtUtil.getUsername(accessToken);
         String role = jwtUtil.getRole(accessToken);
 
-        OAuthUserDTO oAuthUserDTO = new OAuthUserDTO();
-        oAuthUserDTO.setUsernameId(username);
-        oAuthUserDTO.setRole(ServiceRole.valueOf(role));
-        CustomOAuth2User customUserDetails = new CustomOAuth2User(oAuthUserDTO);
+        // CustomOAuth2User 생성 (OAuthUserDTO 없이 바로 사용)
+        CustomOAuth2User customUserDetails = new CustomOAuth2User(usernameId, ServiceRole.valueOf(role), false);
+
 
         Authentication authToken = new UsernamePasswordAuthenticationToken(customUserDetails, null, customUserDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authToken);

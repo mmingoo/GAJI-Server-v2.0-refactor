@@ -88,7 +88,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         log.info("refreshToken = {}", refreshToken);
 
 
-        String finalRedirectionUrl = customUserDetails.isNewUser() ? this.nicknameRedirectionUrl : this.redirectionUrl;
+        String finalRedirectionUrl = customUserDetails.getIsNewUser() ? this.nicknameRedirectionUrl : this.redirectionUrl;
 
 
 
