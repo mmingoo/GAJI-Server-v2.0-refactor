@@ -1,7 +1,7 @@
 services: # 컨테이너 설정
   mysql:
     image: mysql:8.0
-    container_name: mysql-server
+    container_name: mysql-server-dev
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${}   # 루트 비밀번호 설정
