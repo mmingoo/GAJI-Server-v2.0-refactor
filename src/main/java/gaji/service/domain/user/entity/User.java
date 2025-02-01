@@ -2,13 +2,11 @@ package gaji.service.domain.user.entity;
 
 
 import gaji.service.domain.Report;
-import gaji.service.domain.alram.Alarm;
 import gaji.service.domain.common.entity.BaseEntity;
 import gaji.service.domain.enums.Gender;
 import gaji.service.domain.enums.ServiceRole;
 import gaji.service.domain.enums.SocialType;
 import gaji.service.domain.enums.UserActive;
-import gaji.service.domain.message.entity.Message;
 import gaji.service.domain.post.entity.CommnuityPost;
 import gaji.service.domain.post.entity.CommunityComment;
 import gaji.service.domain.post.entity.PostFile;
@@ -18,7 +16,6 @@ import gaji.service.domain.recruit.entity.RecruitPostLikes;
 import gaji.service.domain.recruit.entity.SearchKeyword;
 import gaji.service.domain.room.entity.Room;
 import gaji.service.domain.room.entity.RoomEvent;
-import gaji.service.domain.room.entity.VoiceChatUser;
 import gaji.service.domain.roomBoard.entity.RoomPost.RoomPostFile;
 import gaji.service.domain.studyMate.entity.*;
 import gaji.service.oauth2.dto.TransferUserDTO;
@@ -67,19 +64,6 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL )
     private List<RecruitPostBookmark> recruitPostBookmarkList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "self")
-    private List<Message> sentMessages = new ArrayList<>();
-
-    @OneToMany(mappedBy = "other")
-    private List<Message> receivedMessages = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<Alarm> alarmList = new ArrayList<>();
-
-
-    @OneToMany(mappedBy = "user")
-    private List<VoiceChatUser> voiceChatUserList = new ArrayList<>();
-
     @OneToMany(mappedBy = "user")
     private List<StudyApplicant> studyApplicantList = new ArrayList<>();
 
@@ -109,13 +93,6 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<UserAssignment> userAssignmentList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<ChatUser> chatUserList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<ChatMessage> chatMessageList = new ArrayList<>();
-
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeeklyUserProgress> weeklyUserProgressList = new ArrayList<>();

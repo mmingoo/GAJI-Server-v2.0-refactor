@@ -6,7 +6,6 @@ import gaji.service.domain.recruit.entity.RecruitPostBookmark;
 import gaji.service.domain.recruit.entity.RecruitPostLikes;
 import gaji.service.domain.recruit.web.dto.RecruitRequestDTO;
 import gaji.service.domain.roomBoard.entity.RoomBoard;
-import gaji.service.domain.studyMate.entity.Chat;
 import gaji.service.domain.studyMate.entity.StudyApplicant;
 import gaji.service.domain.studyMate.entity.StudyMate;
 import gaji.service.domain.user.entity.User;
@@ -41,9 +40,6 @@ public class Room extends BaseEntity {
 //    private List<Assignment> assignmentList = new ArrayList<>();
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    private List<VoiceChat> voiceChatList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<StudyApplicant> studyApplicantList = new ArrayList<>();
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
@@ -51,9 +47,6 @@ public class Room extends BaseEntity {
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<RoomBoard> roomBoardList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    private List<Chat> chatList = new ArrayList<>();
 
     // 모집 게시글 관련
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
