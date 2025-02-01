@@ -3,7 +3,8 @@ package gaji.service.domain.room.service;
 import gaji.service.domain.room.entity.Room;
 import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.room.entity.RoomNotice;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.NoticeDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface RoomQueryService {
 //
 //    List<RoomResponseDto.NoticeDto> getNextNotices(Long roomId, Long lastNoticeId, int size);
 
-    List<RoomResponseDto.NoticeDto> getNextNotices(Long roomId, Long lastNoticeId, int size);
+    List<NoticeDto> getNextNotices(Long roomId, Long lastNoticeId, int size);
 
     @Transactional(readOnly = true)
     RoomResponseDto.WeeklyStudyInfoDTO getWeeklyStudyInfo(Long roomId, Integer weeks);

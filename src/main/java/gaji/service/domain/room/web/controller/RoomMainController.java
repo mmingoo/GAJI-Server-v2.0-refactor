@@ -5,7 +5,7 @@ import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.room.service.RoomCommandService;
 import gaji.service.domain.room.service.RoomQueryService;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import gaji.service.domain.roomBoard.service.RoomPost.RoomPostQueryService;
 import gaji.service.domain.roomBoard.web.dto.RoomPostResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;

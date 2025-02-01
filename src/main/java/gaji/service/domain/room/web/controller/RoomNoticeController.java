@@ -5,7 +5,8 @@ import gaji.service.domain.room.entity.RoomNotice;
 import gaji.service.domain.room.service.RoomCommandService;
 import gaji.service.domain.room.service.RoomQueryService;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.NoticeDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import gaji.service.global.base.BaseResponse;
 import gaji.service.jwt.service.TokenProviderService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -46,11 +47,11 @@ public class RoomNoticeController {
     @GetMapping("/{roomId}/notices")
     @Operation(summary = "스터디룸 공지 무한 스크롤 조회", description = "공지를 무한 스크롤 방식으로 조회합니다.")
     @ApiResponse(responseCode = "200", description = "조회 성공")
-    public BaseResponse<List<RoomResponseDto.NoticeDto>> getNextNotices(
+    public BaseResponse<List<NoticeDto>> getNextNotices(
             @PathVariable @Parameter(description = "스터디룸 ID") Long roomId,
             @RequestParam @Parameter(description = "마지막으로 로드된 공지 ID") Long lastNoticeId,
             @RequestParam(defaultValue = "5") @Parameter(description = "조회할 공지 수") int size) {
-        List<RoomResponseDto.NoticeDto> notices = roomQueryService.getNextNotices(roomId, lastNoticeId, size);
+        List<NoticeDto> notices = roomQueryService.getNextNotices(roomId, lastNoticeId, size);
         return BaseResponse.onSuccess(notices);
     }
 

@@ -1,4 +1,4 @@
-package gaji.service.domain.room.web.dto;
+package gaji.service.domain.room.web.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -155,39 +155,6 @@ public class RoomResponseDto {
     @AllArgsConstructor
     public static class NoticeDtoList {
         private List<NoticeDto> noticeDtoList;
-    }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class NoticeDto {
-        private Long id;
-        private String authorName;
-        private String title;
-        private String body;
-        private Long confirmCount;
-        private LocalDateTime createdAt;
-        private Integer viewCount;
-        private String timeSincePosted;
-
-        public NoticeDto(Long id, String authorName, String title, String body, Long confirmCount, LocalDateTime createdAt, Integer viewCount) {
-            this.id = id;
-            this.authorName = authorName;
-            this.title = title;
-            this.body = body;
-            this.confirmCount = confirmCount;
-            this.createdAt = createdAt;
-            this.viewCount = viewCount;
-        }
-
-        public void setTimeSincePosted(String timeSincePosted) {
-            this.timeSincePosted = timeSincePosted;
-        }
-
-        public void setViewCount(Integer viewCount) {
-            this.viewCount = viewCount;
-        }
     }
 
     @Getter

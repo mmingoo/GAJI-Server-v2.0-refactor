@@ -3,7 +3,6 @@ package gaji.service.domain.user.entity;
 
 import gaji.service.domain.Report;
 import gaji.service.domain.common.entity.BaseEntity;
-import gaji.service.domain.enums.Gender;
 import gaji.service.domain.enums.ServiceRole;
 import gaji.service.domain.enums.SocialType;
 import gaji.service.domain.enums.UserActive;
@@ -23,8 +22,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +38,6 @@ public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
-    @Column(unique = true, nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SearchKeyword> searchKeywordList = new ArrayList<>();
@@ -97,14 +90,8 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeeklyUserProgress> weeklyUserProgressList = new ArrayList<>();
 
-
+    @ColumnDefault("가지돌이")
     private String nickname;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Gender gender;
-
-    private LocalDate birthday;
 
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
@@ -124,14 +111,9 @@ public class User extends BaseEntity {
     public static User createUser(TransferUserDTO transferUserDTO) {
         User user = new User();
         user.setUsernameId(transferUserDTO.getUsernameId());
-        user.setEmail(transferUserDTO.getEmail());
-        user.setName(transferUserDTO.getName());
         user.setRole(transferUserDTO.getRole());
-        user.setBirthday(transferUserDTO.getBirthday());
         user.setSocialType(transferUserDTO.getSocialType());
-        user.setGender(transferUserDTO.getGender());
         user.setStatus(transferUserDTO.getUserActive());
-        user.setNickname(transferUserDTO.getNickname());
 
         return user;
     }
@@ -142,32 +124,13 @@ public class User extends BaseEntity {
         this.status = userActive;
     }
 
-    private void setGender(Gender gender) {
-        this.gender = gender;
-
-    }
-
     private void setSocialType(SocialType socialType) {
         this.socialType = socialType;
-    }
-
-    private void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
     }
 
     private void setRole(ServiceRole role) {
         this.role = role;
     }
-
-    public void setName(String name) {
-
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
 
     public void setUsernameId(String usernameId) {
 

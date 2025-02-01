@@ -14,13 +14,8 @@ import java.time.LocalDate;
 public class TransferUserDTO {
 
     private ServiceRole role;
-    private String name;
-    private Gender gender;
     // 서버에서 발급받는 아이디
     private String usernameId;
-    private String email;
-    private LocalDate birthday;
     private SocialType socialType;
     private UserActive userActive;
-    private String nickname;
 }

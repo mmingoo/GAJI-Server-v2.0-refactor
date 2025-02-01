@@ -6,7 +6,8 @@ import gaji.service.domain.room.entity.Room;
 import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.room.entity.RoomNotice;
 import gaji.service.domain.room.repository.*;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.NoticeDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import gaji.service.global.converter.DateConverter;
 import gaji.service.global.exception.RestApiException;
 import lombok.RequiredArgsConstructor;
@@ -60,7 +61,7 @@ public Room findRoomById(Long roomId) {
 //    }
 
     @Override
-    public List<RoomResponseDto.NoticeDto> getNextNotices(Long roomId, Long lastNoticeId, int size) {
+    public List<NoticeDto> getNextNotices(Long roomId, Long lastNoticeId, int size) {
         LocalDateTime lastCreatedAt;
         if (lastNoticeId == 0) {
             lastCreatedAt = LocalDateTime.now();
@@ -72,10 +73,10 @@ public Room findRoomById(Long roomId) {
         Sort sort = Sort.by(Sort.Direction.DESC, "createdAt", "id");
         Pageable pageable = PageRequest.of(0, size, sort);
 
-        List<RoomResponseDto.NoticeDto> notices = roomNoticeRepository.findNoticeSummariesForInfiniteScroll(roomId, lastCreatedAt, pageable);
+        List<NoticeDto> notices = roomNoticeRepository.findNoticeSummariesForInfiniteScroll(roomId, lastCreatedAt, pageable);
 
         LocalDateTime now = LocalDateTime.now();
-        for (RoomResponseDto.NoticeDto notice : notices) {
+        for (NoticeDto notice : notices) {
             notice.setTimeSincePosted(DateConverter.convertToRelativeTimeFormat(notice.getCreatedAt()));
         }
         return notices;

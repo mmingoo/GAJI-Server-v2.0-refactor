@@ -1,6 +1,7 @@
 package gaji.service.domain.room.repository;
 
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.NoticeDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -16,11 +17,11 @@ public class RoomQueryRepository {
     private EntityManager entityManager;
 
 
-    public List<RoomResponseDto.NoticeDto> getNotices(Long roomId, int page, int size) {
+    public List<NoticeDto> getNotices(Long roomId, int page, int size) {
         String jpql = """
-        SELECT NEW gaji.service.domain.room.web.dto.RoomResponseDto$NoticeDto(
+        SELECT NEW gaji.service.domain.room.web.dto.response.NoticeDto(
             rn.id,
-            sm.user.name,
+            sm.user.nickname,
             rn.title,
             rn.body,
         CAST(COUNT(nc) AS Long),
@@ -34,14 +35,14 @@ public class RoomQueryRepository {
         GROUP BY rn.id, sm.user.name, rn.title, rn.body, rn.createdAt, rn.viewCount
         ORDER BY rn.createdAt DESC
     """;
-        List<RoomResponseDto.NoticeDto> notices = entityManager.createQuery(jpql, RoomResponseDto.NoticeDto.class)
+        List<NoticeDto> notices = entityManager.createQuery(jpql, NoticeDto.class)
                 .setParameter("roomId", roomId)
                 .setFirstResult((page - 1) * size)
                 .setMaxResults(size)
                 .getResultList();
 
         LocalDateTime now = LocalDateTime.now();
-        for (RoomResponseDto.NoticeDto notice : notices) {
+        for (NoticeDto notice : notices) {
             notice.setTimeSincePosted(calculateTimeDifference(notice.getCreatedAt(), now));
         }
 
@@ -89,7 +90,7 @@ public class RoomQueryRepository {
 
     public RoomResponseDto.RoomMainDto getMainStudyRoom(Long roomId) {
         String jpql = """
-    SELECT NEW gaji.service.domain.room.web.dto.RoomResponseDto$RoomMainDto(
+    SELECT NEW gaji.service.domain.room.web.dto.response.RoomResponseDto$RoomMainDto(
         r.name,
         r.studyStartDay,
         r.studyEndDay,
@@ -116,7 +117,7 @@ public class RoomQueryRepository {
     public RoomResponseDto.MainRoomNoticeDto getRoomNotices(Long roomId) {
         // 최신 공지사항 조회
         String latestNoticeJpql = """
-    SELECT NEW gaji.service.domain.room.web.dto.RoomResponseDto$MainRoomNoticeDto$NoticePreview(
+    SELECT NEW gaji.service.domain.room.web.dto.response.RoomResponseDto$MainRoomNoticeDto$NoticePreview(
         rn.id,
         rn.title,
         rn.title
@@ -140,7 +141,7 @@ public class RoomQueryRepository {
 
         // 최신 공지사항을 제외한 다음 4개 공지사항 제목과 내용 조회
         String noticePreviewJpql = """
-        SELECT NEW gaji.service.domain.room.web.dto.RoomResponseDto$MainRoomNoticeDto$NoticePreview(
+        SELECT NEW gaji.service.domain.room.web.dto.response.RoomResponseDto$MainRoomNoticeDto$NoticePreview(
             rn.id,
             rn.title,
             CASE WHEN LENGTH(rn.body) > 30 THEN SUBSTRING(rn.body, 1, 30) || '...' ELSE rn.body END

@@ -1,7 +1,8 @@
 package gaji.service.domain.room.repository;
 
 import gaji.service.domain.room.entity.RoomNotice;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.NoticeDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,15 +15,15 @@ import java.util.Optional;
 
 @Repository
 public interface RoomNoticeRepository extends JpaRepository<RoomNotice, Long> {
-    @Query("SELECT NEW gaji.service.domain.room.web.dto.RoomResponseDto$NoticeDto(" +
-            "rn.id, sm.user.name, rn.title, rn.body, CAST(COUNT(nc) AS Long), rn.createdAt, rn.viewCount) " +
+    @Query("SELECT NEW gaji.service.domain.room.web.dto.response.NoticeDto(" +
+            "rn.id, sm.user.nickname, rn.title, rn.body, CAST(COUNT(nc) AS Long), rn.createdAt, rn.viewCount) " +
             "FROM RoomNotice rn " +
             "JOIN rn.studyMate sm " +
             "LEFT JOIN NoticeConfirmation nc ON nc.roomNotice.id = rn.id " +
             "WHERE sm.room.id = :roomId AND rn.createdAt <= :lastCreatedAt " +
-            "GROUP BY rn.id, sm.user.name, rn.title, rn.body, rn.createdAt, rn.viewCount " +
+            "GROUP BY rn.id, sm.user.nickname, rn.title, rn.body, rn.createdAt, rn.viewCount " +
             "ORDER BY rn.createdAt DESC, rn.id DESC")
-    List<RoomResponseDto.NoticeDto> findNoticeSummariesForInfiniteScroll(
+    List<NoticeDto> findNoticeSummariesForInfiniteScroll(
             @Param("roomId") Long roomId,
             @Param("lastCreatedAt") LocalDateTime lastCreatedAt,
             Pageable pageable);

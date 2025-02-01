@@ -102,7 +102,7 @@ public class RoomPostQueryServiceImpl implements RoomPostQueryService {
         dto.setId(post.getId());
         dto.setTitle(post.getTitle());
         dto.setBody(post.getBody());
-        dto.setAuthorName(post.getStudyMate().getUser().getName());
+        dto.setAuthorName(post.getStudyMate().getUser().getNickname());
         dto.setCreatedAt(post.getCreatedAt());
         dto.setViewCount(post.getViewCount());
         dto.setLikeCount(post.getLikeCount());
@@ -132,7 +132,7 @@ public class RoomPostQueryServiceImpl implements RoomPostQueryService {
     private RoomPostResponseDto.CommentWithRepliesDTO convertToCommentWithRepliesDTO(PostComment comment) {
         RoomPostResponseDto.CommentWithRepliesDTO dto = new RoomPostResponseDto.CommentWithRepliesDTO();
         dto.setId(comment.getId());
-        dto.setUserNickName(comment.getUser().getName());
+        dto.setUserNickName(comment.getUser().getNickname());
         dto.setCommentBody(comment.getBody());
         dto.setCommentWriteDate(comment.getCreatedAt());
         dto.setReplies(comment.getReplies().stream()
@@ -145,7 +145,7 @@ public class RoomPostQueryServiceImpl implements RoomPostQueryService {
     private RoomPostResponseDto.CommentDTO convertToCommentDTO(PostComment reply) {
         RoomPostResponseDto.CommentDTO dto = new RoomPostResponseDto.CommentDTO();
         dto.setId(reply.getId());
-        dto.setUserNickName(reply.getUser().getName());
+        dto.setUserNickName(reply.getUser().getNickname());
         dto.setCommentBody(reply.getBody());
         dto.setCommentWriteDate(reply.getCreatedAt());
         return dto;

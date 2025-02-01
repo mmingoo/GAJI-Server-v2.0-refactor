@@ -2,7 +2,7 @@ package gaji.service.domain.room.converter;
 
 import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.room.entity.RoomNotice;
-import gaji.service.domain.room.web.dto.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.RoomResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;
 
 public class RoomConverter {
