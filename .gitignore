@@ -44,3 +44,6 @@ application.yml
 
 # 맥에서 생성되는 ds_store
 .DS_Store
+
+# 환경 변수 파일
+.env
