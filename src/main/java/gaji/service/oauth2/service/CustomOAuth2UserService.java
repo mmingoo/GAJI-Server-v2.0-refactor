@@ -91,44 +91,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             return new CustomOAuth2User(oAuthuserDTO);
         }
     }
-
-
-    public LocalDate formatDate(String birthyear, String birthday){
-        if(birthday == null){
-            return null;
-        }else{
-            try {
-                // birthday (MM-dd 형식)와 birthyear를 결합
-                String fullDateString = birthyear + "-" + birthday;
-
-                // 결합된 문자열을 파싱할 DateTimeFormatter 생성
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-                // 문자열을 LocalDate로 파싱
-                return LocalDate.parse(fullDateString, formatter);
-            } catch (DateTimeParseException e) {
-                System.out.println("Error parsing date: " + e.getMessage());
-                return null;
-            }
-        }
-
-    }
-
-
-    public Gender toEnumGender(String gender) {
-        if (gender == null) {
-            return Gender.UNKNOWN;
-        }
-        switch (gender.toUpperCase()) {
-            case "W":
-            case "F":
-                return Gender.FEMALE;
-            case "M":
-                return Gender.MALE;
-            default:
-                return Gender.UNKNOWN;
-        }
-    }
     public SocialType setSocialType(String social){
         if(social.equals("kakao")){
             return SocialType.KAKAO;
@@ -138,18 +100,4 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             throw new RestApiException(_INVALID_LOGIN_TYPE);
         }
     }
-
-    public static String extractNickname(String email) {
-        if (email == null || email.isEmpty()) {
-            return null;
-        }
-
-        int atIndex = email.indexOf('@');
-        if (atIndex == -1) {
-            return null; // '@'가 없는 경우 유효하지 않은 이메일로 간주
-        }
-
-        return email.substring(0, atIndex);
-    }
-
 }
