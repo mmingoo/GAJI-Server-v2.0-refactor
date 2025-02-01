@@ -8,11 +8,12 @@ import gaji.service.domain.enums.UserActive;
 import gaji.service.domain.user.entity.User;
 import gaji.service.domain.user.service.UserCommandService;
 import gaji.service.domain.user.service.UserQueryService;
+import gaji.service.global.exception.RestApiException;
 import gaji.service.oauth2.dto.CustomOAuth2User;
 import gaji.service.oauth2.dto.OAuthUserDTO;
 import gaji.service.oauth2.dto.TransferUserDTO;
 import gaji.service.oauth2.response.GoogleResponse;
-import gaji.service.oauth2.response.NaverResponse;
+import gaji.service.oauth2.response.KakaoResponse;
 import gaji.service.oauth2.response.OAuth2Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -24,6 +25,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
+import static gaji.service.global.exception.code.status.GlobalErrorStatus._INVALID_LOGIN_TYPE;
 
 @Service
 @RequiredArgsConstructor
@@ -39,15 +42,13 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         boolean isNewUser = false;
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
         OAuth2Response oAuth2Response = null;
-        if (registrationId.equals("naver")) {
-
-            oAuth2Response = new NaverResponse(oAuth2User.getAttributes());
-        }
-        else if (registrationId.equals("google")) {
+        // todo: if else 문 없애고 팩토리 메서드 패턴으로 리팩토링
+        if (registrationId.equals("google")) {
 
             oAuth2Response = new GoogleResponse(oAuth2User.getAttributes());
-        }
-        else {
+        } else if (registrationId.equals("kakao")) {
+            oAuth2Response = new KakaoResponse(oAuth2User.getAttributes());
+        } else {
 
             return null;
         }
@@ -65,45 +66,19 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             oAuthuserDTO.setRole(ServiceRole.ROLE_USER);
             oAuthuserDTO.setNewUser(isNewUser);
 
-            if (registrationId.equals("naver")) {
+            TransferUserDTO transferUserDTO =new TransferUserDTO();
 
-                TransferUserDTO transferUserDTO =new TransferUserDTO();
-                transferUserDTO.setUsernameId(usernameId);
-                transferUserDTO.setEmail(oAuth2Response.getEmail());
-                transferUserDTO.setNickname(extractNickname(oAuth2Response.getEmail()));
-                transferUserDTO.setName(oAuth2Response.getName());
-                transferUserDTO.setGender(toEnumGender(oAuth2Response.getGender()));
-                transferUserDTO.setBirthday(formatDate(oAuth2Response.getBirthyear(), oAuth2Response.getBirthday()));
-                transferUserDTO.setUserActive(UserActive.ACTIVE);
-                transferUserDTO.setSocialType(setSocialType(registrationId));
-                transferUserDTO.setRole(ServiceRole.ROLE_USER);
+            transferUserDTO.setUsernameId(usernameId);
+            transferUserDTO.setUserActive(UserActive.ACTIVE);
+            transferUserDTO.setSocialType(setSocialType(registrationId));
+            transferUserDTO.setRole(ServiceRole.ROLE_USER);
 
-                User user = User.createUser(transferUserDTO); // 정적 팩토리 메서드 사용
-                userCommandService.save(user);
-            }
-            else if (registrationId.equals("google")) {
-                TransferUserDTO transferUserDTO =new TransferUserDTO();
-
-                transferUserDTO.setUsernameId(usernameId);
-                transferUserDTO.setEmail(oAuth2Response.getEmail());
-                transferUserDTO.setName(oAuth2Response.getName());
-                transferUserDTO.setGender(toEnumGender(oAuth2Response.getGender()));
-                transferUserDTO.setNickname(extractNickname(oAuth2Response.getEmail()));
-//                transferUserDTO.setBirthday(formatDate(oAuth2Response.getBirthyear(), oAuth2Response.getBirthday()));
-                transferUserDTO.setUserActive(UserActive.ACTIVE);
-                transferUserDTO.setSocialType(setSocialType(registrationId));
-                transferUserDTO.setRole(ServiceRole.ROLE_USER);
-
-                User user = User.createUser(transferUserDTO); // 정적 팩토리 메서드 사용
-                System.out.println(user.getGender());
-                userCommandService.save(user);
-            }
+            User user = User.createUser(transferUserDTO); // 정적 팩토리 메서드 사용
+            userCommandService.save(user);
 
             return new CustomOAuth2User(oAuthuserDTO);
 
         }else{
-            existData.setEmail(oAuth2Response.getEmail());
-            existData.setName(oAuth2Response.getName());
 
             userCommandService.save(existData);
 
@@ -155,10 +130,12 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         }
     }
     public SocialType setSocialType(String social){
-        if(social.equals("naver")){
-            return SocialType.NAVER;
-        }else{
+        if(social.equals("kakao")){
+            return SocialType.KAKAO;
+        }else if (social.equals("google")){
             return SocialType.GOOGLE;
+        }else{
+            throw new RestApiException(_INVALID_LOGIN_TYPE);
         }
     }
 

@@ -41,6 +41,9 @@ public enum GlobalErrorStatus implements BaseErrorCodeInterface {
 
     // For test
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "예외처리 테스트입니다."),
+
+    // 로그인 타입 관련
+    _INVALID_LOGIN_TYPE(HttpStatus.BAD_REQUEST, "LOGIN_4001", "유효하지 않은 로그인 타입입니다."),
     ;
 
     private final HttpStatus httpStatus;
