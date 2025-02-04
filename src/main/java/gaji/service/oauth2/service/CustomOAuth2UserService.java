@@ -9,7 +9,6 @@ import gaji.service.domain.user.service.UserCommandService;
 import gaji.service.domain.user.service.UserQueryService;
 import gaji.service.global.exception.RestApiException;
 import gaji.service.oauth2.dto.CustomOAuth2User;
-import gaji.service.oauth2.response.OAuth2Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -35,11 +34,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         // 소셜 로그인 타입 설정
         SocialType socialType = setSocialType(registrationId);
 
-        OAuth2Response oAuth2Response = null;
-
-
         //리소스 서버에서 발급 받은 정보로 사용자를 특정할 아이디값을 만듬
-        String usernameId = oAuth2Response.getProvider()+" "+oAuth2Response.getProviderId();
+        String usernameId = socialType+" "+registrationId;
 
         // 유저 존재 여부 확인
         User existData = userQueryService.findByUsernameId(usernameId);
