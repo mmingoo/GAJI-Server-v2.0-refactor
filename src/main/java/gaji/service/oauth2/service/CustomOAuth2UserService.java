@@ -51,7 +51,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                     .build();
             userCommandService.save(newUser);
         }
-        return new CustomOAuth2User(socialType.name(), ServiceRole.ROLE_USER, existData == null);
+        return new CustomOAuth2User(usernameId, ServiceRole.ROLE_USER, existData == null);
     }
     public SocialType setSocialType(String social){
         if(social.equals("kakao")){
