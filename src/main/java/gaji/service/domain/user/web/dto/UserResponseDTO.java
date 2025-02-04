@@ -17,6 +17,15 @@ public class UserResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class UserIdDTO {
+        Long userId;
+    }
+
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class CancleResultDTO {
         Long userId;
         UserActive userActive;

@@ -28,6 +28,13 @@ public class UserRestController {
     private final UserQueryService userQueryService;
     private final TokenProviderService tokenProviderService;
 
+    @GetMapping("/")
+    @Operation(summary = "내 아이디 조회 API", description = "내 아이디 조회 API")
+    public BaseResponse<UserResponseDTO.UserIdDTO> getMyId(@RequestHeader("Authorization") String authorizationHeader) {
+        Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);
+        return BaseResponse.onSuccess(new UserResponseDTO.UserIdDTO(userId));
+    }
+
     @PutMapping("/")
     @Operation(summary = "회원 탈퇴 API", description = "회원 탈퇴 API")
     public BaseResponse<UserResponseDTO.CancleResultDTO> cancle(@RequestHeader("Authorization") String authorizationHeader) {
