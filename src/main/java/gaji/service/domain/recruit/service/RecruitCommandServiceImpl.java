@@ -301,11 +301,13 @@ public class RecruitCommandServiceImpl implements RecruitCommandService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public boolean userLikeStatus(Room room, User user) {
         return recruitPostLikesRepository.existsByUserAndRoom(user, room);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public boolean userBookmarkStatus(Room room, User user){
         return recruitPostBookmarkRepository.existsByUserAndRoom(user, room);
     }
