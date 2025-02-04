@@ -22,6 +22,7 @@ public class RoomNotice {
     @JoinColumn(name = "study_mate_id")
     private StudyMate studyMate;
 
+    @Builder.Default
     @OneToMany(mappedBy = "roomNotice", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NoticeConfirmation> confirmations = new ArrayList<>();
 

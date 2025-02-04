@@ -6,8 +6,6 @@ import gaji.service.domain.room.service.RoomCommandService;
 import gaji.service.domain.room.service.RoomQueryService;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
 import gaji.service.domain.room.web.dto.response.RoomResponseDto;
-import gaji.service.domain.roomBoard.service.RoomPost.RoomPostQueryService;
-import gaji.service.domain.roomBoard.web.dto.RoomPostResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;
 import gaji.service.global.base.BaseResponse;
 import gaji.service.jwt.service.TokenProviderService;
@@ -30,7 +28,6 @@ public class RoomMainController {
     private final RoomCommandService roomCommandService;
     private final RoomQueryService roomQueryService;
     private final TokenProviderService tokenProviderService;
-    private final RoomPostQueryService roomPostQueryService;
 
     @PostMapping("/assignments/{roomId}/{weeks}")
     @Operation(summary = "스터디룸 과제 등록 API", description = "스터디룸의 과제를 등록하는 API입니다. room의 id가 존재하는지, 스터디에 참여하고 있는 user인지 검증합니다.")
@@ -148,13 +145,5 @@ public class RoomMainController {
     public BaseResponse<RoomResponseDto.MainRoomNoticeDto> GetMainRoomNoticeController(@PathVariable Long roomId){
         return BaseResponse.onSuccess(roomQueryService.getMainRoomNotice(roomId));
     }
-
-    @GetMapping("/home/post/{roomId}")
-    @Operation(summary = "스터디룸 main 화면 게시글 최신순 3개 조회 API")
-    public BaseResponse<List<RoomPostResponseDto.MainPostSummaryDto>> getMainPostController(@PathVariable Long roomId){
-        return BaseResponse.onSuccess(roomPostQueryService.getLatestPosts(roomId));
-    }
-
-
 
 }

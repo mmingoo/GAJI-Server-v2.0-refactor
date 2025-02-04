@@ -28,7 +28,9 @@ public enum RoomErrorStatus implements BaseErrorCodeInterface {
 
 
     _ASSIGNMENT_NOT_FOUND(HttpStatus.BAD_REQUEST, "ASSIGNMENT_4001"," 과제를 찾을 수 없습니다."),
-    _INTERNAL_SERVER_ERROR(HttpStatus.BAD_REQUEST, "SERVER_4001"," 에러");
+    _INTERNAL_SERVER_ERROR(HttpStatus.BAD_REQUEST, "SERVER_4001"," 에러"),
+    _USER_NOT_DELETE_AUTHORITY(HttpStatus.BAD_REQUEST, "USER_4001"," 사용자 삭제 권한이 없습니다.")
+    ;
 
 
 

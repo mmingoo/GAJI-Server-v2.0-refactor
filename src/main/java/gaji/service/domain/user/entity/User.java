@@ -15,7 +15,6 @@ import gaji.service.domain.recruit.entity.RecruitPostLikes;
 import gaji.service.domain.recruit.entity.SearchKeyword;
 import gaji.service.domain.room.entity.Room;
 import gaji.service.domain.room.entity.RoomEvent;
-import gaji.service.domain.roomBoard.entity.RoomPost.RoomPostFile;
 import gaji.service.domain.studyMate.entity.*;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -59,9 +58,6 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<StudyApplicant> studyApplicantList;
-
-    @OneToMany(mappedBy = "user")
-    private List<RoomPostFile> roomPostFileList
 
     @OneToMany(mappedBy = "user")
     private List<RecruitPostLikes> recruitPostLikesList;
@@ -140,7 +136,6 @@ public class User extends BaseEntity {
         this.reportList = new ArrayList<>();
         this.userAssignmentList = new ArrayList<>();
         this.weeklyUserProgressList = new ArrayList<>();
-        this.roomPostFileList = new ArrayList<>();
     }
 
 
