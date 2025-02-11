@@ -6,6 +6,7 @@ import gaji.service.domain.room.service.RoomCommandService;
 import gaji.service.domain.room.service.RoomQueryService;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
 import gaji.service.domain.room.web.dto.response.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.ToggleAssignmentResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;
 import gaji.service.global.base.BaseResponse;
 import gaji.service.jwt.service.TokenProviderService;
@@ -46,6 +47,8 @@ public class RoomMainController {
             RoomResponseDto.AssignmentResponseDto responseDto = RoomResponseDto.AssignmentResponseDto.of(assignments, roomEvent);
             return BaseResponse.onSuccess(responseDto);
     }
+
+
 
     @PostMapping("/event/{roomId}/{weeks}/period")
     @Operation(summary = "스터디룸 기간 설정 API", description = "스터디룸의 전체 기간을 설정하는 API입니다.")
@@ -113,6 +116,15 @@ public class RoomMainController {
             return ResponseEntity.ok(response);
     }
 
+//todo    @PutMapping("/{roomId}/assignment")
+//    @Operation(summary = "주차별 과제 체크 박스 조회", description = "과제 체크 박스 상태 조회")
+//    public BaseResponse<ToggleAssignmentResponseDto> getToggleAssignment(
+//            @RequestHeader("Authorization") String authorizationHeader,
+//            @PathVariable Long roomId
+//            ) {
+//        Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);
+//        return BaseResponse.onSuccess(roomCommandService.getToggleAssignment(userId, roomId));
+//    }
 
     // 수정 필요
     //특정 스터디룸의 모든 사용자의 진행 상황을 조회합니다
@@ -124,6 +136,15 @@ public class RoomMainController {
         List<RoomResponseDto.UserProgressDTO> progressList = roomQueryService.getUserProgressByRoomEventId(roomId, weeks);
         return ResponseEntity.ok(progressList);
     }
+
+    @DeleteMapping("/{roomId}/{userId}/kick-out")
+    @Operation(summary = "유저 스터디룸에서 강퇴 시키기", description = "유저 스터디룸에서 강퇴 시키기")
+    public ResponseEntity<Long> getStudyMateProgress(
+            @PathVariable Long roomId,
+            @PathVariable Long userId) {
+        return ResponseEntity.ok(roomCommandService.kickoutStudyRoom(roomId, userId));
+    }
+
 
     @GetMapping("/events/{roomId}/{weeks}/weekly-info")
     @Operation(summary = "주차별 스터디 정보", description = "특정 주차의 스터디 정보를 조회합니다.")

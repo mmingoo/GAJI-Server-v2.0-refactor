@@ -9,6 +9,7 @@ import gaji.service.domain.room.entity.RoomNotice;
 import gaji.service.domain.room.repository.*;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
 import gaji.service.domain.room.web.dto.response.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.ToggleAssignmentResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;
 import gaji.service.domain.studyMate.entity.StudyMate;
 import gaji.service.domain.studyMate.entity.UserAssignment;
@@ -347,5 +348,23 @@ public class RoomCommandServiceImpl implements RoomCommandService {
         }
 
         return roomNotice;
+    }
+
+    @Override
+    public ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId) {
+        // todo : 구현 필요
+        return null;
+    }
+
+    // 스터디룸에서 강퇴
+    @Override
+    public Long kickoutStudyRoom(Long roomId, Long userId) {
+        Room room = roomQueryService.findRoomById(roomId);
+        User user = userQueryService.findUserById(userId);
+
+        StudyMate studyMate = studyMateQueryService.findByUserIdAndRoomId(user.getId(), room.getId());
+        studyMateRepository.delete(studyMate);
+
+        return userId;
     }
 }

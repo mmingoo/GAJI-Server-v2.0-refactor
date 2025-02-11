@@ -5,6 +5,7 @@ import gaji.service.domain.room.entity.RoomEvent;
 import gaji.service.domain.room.entity.RoomNotice;
 import gaji.service.domain.room.web.dto.RoomRequestDto;
 import gaji.service.domain.room.web.dto.response.RoomResponseDto;
+import gaji.service.domain.room.web.dto.response.ToggleAssignmentResponseDto;
 import gaji.service.domain.studyMate.entity.Assignment;
 import gaji.service.domain.studyMate.entity.WeeklyUserProgress;
 import gaji.service.domain.user.entity.User;
@@ -45,4 +46,8 @@ public interface RoomCommandService {
     void deleteRoomNotice(Long noticeId, Long userId);
 
     RoomNotice updateRoomNotice(Long noticeId, Long userId, String description);
+
+    ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId);
+
+    Long kickoutStudyRoom(Long userId, Long roomId);
 }

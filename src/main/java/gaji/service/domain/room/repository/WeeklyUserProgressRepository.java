@@ -15,11 +15,12 @@ import java.util.Optional;
 public interface WeeklyUserProgressRepository extends JpaRepository<WeeklyUserProgress, Long> {
     Optional<WeeklyUserProgress> findByRoomEventAndUser(RoomEvent roomEvent, User user);
 
-    @Query("SELECT w.user.nickname as nickname, w.progressPercentage as progressPercentage " +
+    @Query("SELECT w.user.id as userId, w.user.nickname as nickname, w.progressPercentage as progressPercentage " +
             "FROM WeeklyUserProgress w WHERE w.roomEvent.id = :roomEventId")
     List<UserProgressProjection> findProgressByRoomEventId(@Param("roomEventId") Long roomEventId);
 
     interface UserProgressProjection {
+        Long getUserId();
         String getNickname();
         Double getProgressPercentage();
     }
