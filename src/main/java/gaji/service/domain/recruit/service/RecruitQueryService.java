@@ -5,7 +5,7 @@ import gaji.service.domain.enums.SortType;
 import gaji.service.domain.recruit.web.dto.RecruitResponseDTO;
 
 public interface RecruitQueryService {
-    RecruitResponseDTO.studyDetailResponseDTO getStudyDetail(Long roomId);
+    RecruitResponseDTO.studyDetailResponseDTO getStudyDetail(Long userId, Long roomId);
 
     RecruitResponseDTO.PreviewListResponseDTO getPreviewList(
             String category, PreviewFilter filter, SortType sort, String query, Long value, int pageSize);

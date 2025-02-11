@@ -66,8 +66,12 @@ public class RecruitController {
 
     @GetMapping("/{roomId}")
     @Operation(summary = "스터디 정보 상세 조회 API", description = "스터디 상세 정보를 조회하는 API입니다.")
-    public BaseResponse<RecruitResponseDTO.studyDetailResponseDTO> getStudyDetail(@PathVariable Long roomId) {
-        RecruitResponseDTO.studyDetailResponseDTO responseDTO = recruitQueryService.getStudyDetail(roomId);
+    public BaseResponse<RecruitResponseDTO.studyDetailResponseDTO> getStudyDetail(
+            @RequestHeader("Authorization") String authorizationHeader,
+            @PathVariable Long roomId
+    ) {
+        Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);
+        RecruitResponseDTO.studyDetailResponseDTO responseDTO = recruitQueryService.getStudyDetail(userId, roomId);
         return BaseResponse.onSuccess(responseDTO);
     }
 
@@ -131,7 +135,7 @@ public class RecruitController {
 
     @DeleteMapping("/{roomId}/likes")
     @Operation(summary = "스터디 모집 게시글 좋아요 취소 API", description = "스터디 모집 게시글 좋아요 취소하는 API 입니다.")
-    public BaseResponse unLikeStudy(
+    public BaseResponse<String> unLikeStudy(
             @RequestHeader("Authorization") String authorizationHeader,
             @PathVariable @Min(value = 1, message = "roomId는 1 이상 이어야 합니다.") Long roomId) {
         Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);

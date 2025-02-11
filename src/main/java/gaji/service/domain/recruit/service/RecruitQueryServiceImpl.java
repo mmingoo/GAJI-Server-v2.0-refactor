@@ -39,10 +39,11 @@ public class RecruitQueryServiceImpl implements RecruitQueryService {
 
     @Override
     @Transactional
-    public RecruitResponseDTO.studyDetailResponseDTO getStudyDetail(Long roomId) {
+    public RecruitResponseDTO.studyDetailResponseDTO getStudyDetail(Long userId, Long roomId) {
 
         Room room = roomQueryService.findRoomById(roomId);
-        User user = userQueryService.findUserById(room.getUser().getId());
+
+        User user = userQueryService.findUserById(userId);
         boolean likeStatus = recruitCommandService.userLikeStatus(room, user);
         boolean bookmarkStatus = recruitCommandService.userBookmarkStatus(room, user);
 
