@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface UserAssignmentRepository extends JpaRepository<UserAssignment,Long> {
     Optional<RoomEvent> findRoomEventById(Long roomId);
+
+    Optional<UserAssignment> findByUserAndAssignment(Long userId, Long assignmentId);
 }

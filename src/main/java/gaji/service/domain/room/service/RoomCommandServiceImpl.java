@@ -351,10 +351,34 @@ public class RoomCommandServiceImpl implements RoomCommandService {
     }
 
     @Override
-    public ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId) {
-        // todo : 구현 필요
-        return null;
+    public ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId, Integer weeks) {
+        // 1. 스터디룸 조회
+        Room room = roomRepository.findById(roomId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 Room입니다."));
+
+        // 2. 주차에 맞는 RoomEvent 조회
+        RoomEvent roomEvent = roomEventRepository.findByRoomAndWeeks(room, weeks)
+                .orElseThrow(() -> new IllegalArgumentException("해당 주차에 RoomEvent가 존재하지 않습니다."));
+
+        // 3. 해당 RoomEvent에 연관된 Assignment 조회
+        List<Assignment> assignments = roomEvent.getAssignmentList();
+
+        // 4. UserAssignment 조회 (해당 유저의 상태)
+        List<ToggleAssignmentResponseDto.ToggleAssignment> toggleAssignments = assignments.stream()
+                .map(assignment -> {
+                    // UserAssignment 조회
+                    UserAssignment userAssignment = userAssignmentRepository.findByUserAndAssignment(userId, assignment.getId())
+                            .orElse(null);
+
+                    boolean completedStatus = userAssignment != null && userAssignment.isComplete();
+                    return new ToggleAssignmentResponseDto.ToggleAssignment(assignment.getBody(), completedStatus);
+                })
+                .toList();
+
+        // 5. 결과 반환
+        return new ToggleAssignmentResponseDto(toggleAssignments);
     }
+
 
     // 스터디룸에서 강퇴
     @Override

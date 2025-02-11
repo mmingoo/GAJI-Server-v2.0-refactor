@@ -116,15 +116,16 @@ public class RoomMainController {
             return ResponseEntity.ok(response);
     }
 
-//todo    @PutMapping("/{roomId}/assignment")
-//    @Operation(summary = "주차별 과제 체크 박스 조회", description = "과제 체크 박스 상태 조회")
-//    public BaseResponse<ToggleAssignmentResponseDto> getToggleAssignment(
-//            @RequestHeader("Authorization") String authorizationHeader,
-//            @PathVariable Long roomId
-//            ) {
-//        Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);
-//        return BaseResponse.onSuccess(roomCommandService.getToggleAssignment(userId, roomId));
-//    }
+    @PutMapping("/{roomId/{weeks}/assignment")
+    @Operation(summary = "주차별 과제 체크 박스 조회", description = "과제 체크 박스 상태 조회")
+    public BaseResponse<ToggleAssignmentResponseDto> getToggleAssignment(
+            @RequestHeader("Authorization") String authorizationHeader,
+            @PathVariable Long roomId,
+            @PathVariable Integer weeks
+            ) {
+        Long userId = tokenProviderService.getUserIdFromToken(authorizationHeader);
+        return BaseResponse.onSuccess(roomCommandService.getToggleAssignment(userId, roomId, weeks));
+    }
 
     // 수정 필요
     //특정 스터디룸의 모든 사용자의 진행 상황을 조회합니다

@@ -47,7 +47,7 @@ public interface RoomCommandService {
 
     RoomNotice updateRoomNotice(Long noticeId, Long userId, String description);
 
-    ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId);
+    ToggleAssignmentResponseDto getToggleAssignment(Long userId, Long roomId, Integer weeks);
 
     Long kickoutStudyRoom(Long userId, Long roomId);
 }

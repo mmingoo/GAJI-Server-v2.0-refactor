@@ -10,7 +10,7 @@ import java.util.List;
 public class ToggleAssignmentResponseDto {
     private List<ToggleAssignment> assignments;
 
-    record ToggleAssignment(
+    public record ToggleAssignment(
             String content, boolean completedStatus
     ) {};
 }
