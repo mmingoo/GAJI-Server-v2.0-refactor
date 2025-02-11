@@ -34,9 +34,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Value("${redirectionUrl}")
     private String redirectionUrl;
 
-    @Value("${nicknameRedirectionUrl}")
-    private String nicknameRedirectionUrl;
-
     public CustomSuccessHandler(JWTUtil jwtUtil, RefreshRepository refreshRepository, ObjectMapper objectMapper) {
         this.jwtUtil = jwtUtil;
         this.refreshRepository = refreshRepository;
@@ -88,9 +85,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         log.info("refreshToken = {}", refreshToken);
 
 
-        String finalRedirectionUrl = customUserDetails.getIsNewUser() ? this.nicknameRedirectionUrl : this.redirectionUrl;
-
-
+        String finalRedirectionUrl = this.redirectionUrl;
 
         // 리다이렉션 URL 생성
         String targetUrl = UriComponentsBuilder.fromUriString(finalRedirectionUrl)
