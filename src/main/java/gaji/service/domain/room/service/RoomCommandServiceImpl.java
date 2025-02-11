@@ -367,7 +367,7 @@ public class RoomCommandServiceImpl implements RoomCommandService {
         List<ToggleAssignmentResponseDto.ToggleAssignment> toggleAssignments = assignments.stream()
                 .map(assignment -> {
                     // UserAssignment 조회
-                    UserAssignment userAssignment = userAssignmentRepository.findByUserAndAssignment(userId, assignment.getId())
+                    UserAssignment userAssignment = userAssignmentRepository.findByUserIdAndAssignmentId(userId, assignment.getId())
                             .orElse(null);
 
                     boolean completedStatus = userAssignment != null && userAssignment.isComplete();

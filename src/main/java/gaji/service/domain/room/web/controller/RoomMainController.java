@@ -116,7 +116,7 @@ public class RoomMainController {
             return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/{roomId/{weeks}/assignment")
+    @PutMapping("/{roomId}/{weeks}/assignment")
     @Operation(summary = "주차별 과제 체크 박스 조회", description = "과제 체크 박스 상태 조회")
     public BaseResponse<ToggleAssignmentResponseDto> getToggleAssignment(
             @RequestHeader("Authorization") String authorizationHeader,
