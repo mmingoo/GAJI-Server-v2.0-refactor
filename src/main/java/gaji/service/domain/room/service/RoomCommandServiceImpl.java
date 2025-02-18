@@ -371,7 +371,7 @@ public class RoomCommandServiceImpl implements RoomCommandService {
                             .orElse(null);
 
                     boolean completedStatus = userAssignment != null && userAssignment.isComplete();
-                    return new ToggleAssignmentResponseDto.ToggleAssignment(assignment.getBody(), completedStatus);
+                    return new ToggleAssignmentResponseDto.ToggleAssignment(assignment.getId(), assignment.getBody(), completedStatus);
                 })
                 .toList();
 

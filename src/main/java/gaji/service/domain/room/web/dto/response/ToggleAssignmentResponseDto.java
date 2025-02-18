@@ -15,6 +15,8 @@ public class ToggleAssignmentResponseDto {
     private List<ToggleAssignment> assignments;
 
     public record ToggleAssignment(
-            String content, boolean completedStatus
+            Long assignmentId,
+            String content,
+            boolean completedStatus
     ) {};
 }
