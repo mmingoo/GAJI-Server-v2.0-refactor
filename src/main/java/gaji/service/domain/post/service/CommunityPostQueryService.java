@@ -27,4 +27,6 @@ public interface CommunityPostQueryService {
     void validPostWriter(Long userId, CommnuityPost post);
     void validExistsPostLikes(Long userId, CommnuityPost post);
     void validExistsPostBookmark(Long userId, CommnuityPost post);
+
+    String putPostStatus(Long userId, Long postId);
 }

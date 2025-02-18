@@ -241,6 +241,11 @@ public class RecruitCommandServiceImpl implements RecruitCommandService {
         StudyMate studyMate = RecruitConverter.toStudyMate(user, room, Role.MEMBER);
         studyMateCommandService.saveStudyMate(studyMate);
 
+        if(room.getStudyMateList().size() == room.getPeopleMaximum()){
+            room.updateRecruitStatus(RecruitPostTypeEnum.RECRUITMENT_COMPLETED);
+            roomCommandService.saveRoom(room);
+        }
+
         return RecruitConverter.toJoinStudyResponseDTO(roomId);
     }
 

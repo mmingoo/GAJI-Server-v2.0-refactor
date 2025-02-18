@@ -86,6 +86,7 @@ public class CommunityPostQueryServiceImpl implements CommunityPostQueryService 
     }
 
     @Override
+    @Transactional
     public CommunityPostResponseDTO.PostDetailDTO getPostDetail(Long userId, Long postId) {
         CommnuityPost findPost = communityPostJpaRepository.findByIdFetchJoinWithUser(postId);
         if (findPost == null) {
@@ -136,4 +137,48 @@ public class CommunityPostQueryServiceImpl implements CommunityPostQueryService 
             throw new RestApiException(CommunityPostErrorStatus._ALREADY_EXIST_POST_BOOKMARK);
         }
     }
+
+    @Override
+    @Transactional
+    public String putPostStatus(Long userId, Long postId) {
+        // 게시글 조회
+        CommnuityPost post = findPostByPostId(postId);
+
+        // 요청한 사용자와 게시글 작성자 비교
+        if (!post.getUser().getId().equals(userId)) {
+            throw new RestApiException(CommunityPostErrorStatus._NOT_AUTHORIZED);
+        }
+
+        // 현재 상태에 따라 자동으로 변경될 상태 결정
+        PostStatusEnum newStatus = determineNextStatus(post);
+
+        // 상태 변경
+        post.updateStatus(newStatus);
+
+        return post.getStatus().getValue();
+    }
+
+    private PostStatusEnum determineNextStatus(CommnuityPost post) {
+        PostTypeEnum type = post.getType();
+        PostStatusEnum currentStatus = post.getStatus();
+
+        if (type == PostTypeEnum.PROJECT) {
+            if (currentStatus == PostStatusEnum.RECRUITING) {
+                return PostStatusEnum.RECRUITMENT_COMPLETED;
+            } else if (currentStatus == PostStatusEnum.RECRUITMENT_COMPLETED) {
+                return PostStatusEnum.RECRUITING;
+            }
+        } else if (type == PostTypeEnum.QUESTION) {
+            if (currentStatus == PostStatusEnum.NEED_RESOLUTION) {
+                return PostStatusEnum.RESOLVED;
+            } else if (currentStatus == PostStatusEnum.RESOLVED) {
+                return PostStatusEnum.NEED_RESOLUTION;
+            }
+        }
+
+        throw new RestApiException(CommunityPostErrorStatus._INVALID_POST_STATUS);
+    }
+
+
+
 }

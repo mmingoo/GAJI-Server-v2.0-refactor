@@ -126,4 +126,8 @@ public class CommnuityPost extends BaseEntity {
     public void decreaseCommentCnt() {
         this.commentCnt--;
     }
+
+    public void updateStatus(PostStatusEnum status) {
+        this.status = status;
+    }
 }

@@ -173,7 +173,7 @@ public class RecruitConverter {
                 .roomId(room.getId())
                 .imageUrl(room.getThumbnailUrl())
                 .recruitStatus(room.getRecruitPostTypeEnum())
-                .applicant(room.getStudyApplicantList().size())
+                .applicant(room.getStudyMateList().size())
                 .name(room.getName())
                 .deadLine(ChronoUnit.DAYS.between(LocalDate.now(), room.getRecruitEndDay()))
                 .description(room.getDescription())

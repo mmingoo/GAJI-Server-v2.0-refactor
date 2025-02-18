@@ -82,6 +82,17 @@ public class CommunityPostRestController {
         return BaseResponse.onSuccess(communityPostQueryService.getPostDetail(userId, postId));
     }
 
+    @PutMapping("/{postId}/status")
+    @Operation(summary = "커뮤니티 게시글 상태 변경 API", description = "모집중-모집완료,   미완료질문-해결완료  상태 바꾸기")
+    @Parameters({
+            @Parameter(name = "postId", description = "게시글 id"),
+    })
+    public BaseResponse<String> putPostStatus(@Min(value = 1, message = "postId는 1 이상 이어야 합니다.") @PathVariable Long postId,
+                                                                              @RequestHeader(value = "Authorization", required = false) String authorizationHeader) {
+        Long userId = (authorizationHeader == null) ? null : tokenProviderService.getUserIdFromToken(authorizationHeader);
+        return BaseResponse.onSuccess(String.format("성공 : 현재 상태 -> %s", communityPostQueryService.putPostStatus(userId, postId)));
+    }
+
     @GetMapping("/preivew")
     @Operation(summary = "커뮤니티 게시글 미리보기 목록 조회 API", description = "hot 게시글, 커뮤니티 게시글 미리보기 목록, 검색 API에 모두 사용 가능합니다.")
     @Parameters({
