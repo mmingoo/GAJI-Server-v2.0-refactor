@@ -1,18 +1,1 @@
-server:
-  port: 8000
 
-spring:
-  application:
-    name: gaji-service-dev
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    config:
-      import: classpath:application.yml
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
