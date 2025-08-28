@@ -1,6 +1,6 @@
 package gaji.service.jwt.filter;
 
-import gaji.service.jwt.rpository.RefreshRepository;
+import gaji.service.jwt.repository.RefreshRepository;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package gaji.service.jwt.rpository;
+package gaji.service.jwt.repository;
 
 import gaji.service.jwt.entity.RefreshEntity;
 import jakarta.transaction.Transactional;

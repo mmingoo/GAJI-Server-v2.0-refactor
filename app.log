@@ -1,0 +1,2284 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.1)
+
+2025-08-28T10:10:34.738+09:00  INFO 4669 --- [           main] gaji.service.ServiceApplication          : Starting ServiceApplication v0.0.1-SNAPSHOT using Java 21.0.8 with PID 4669 (/Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main/build/libs/gaji.jar started by admin in /Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main)
+2025-08-28T10:10:34.741+09:00  INFO 4669 --- [           main] gaji.service.ServiceApplication          : The following 1 profile is active: "dev"
+2025-08-28T10:10:35.431+09:00  INFO 4669 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-28T10:10:35.507+09:00  INFO 4669 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 26 JPA repository interfaces.
+2025-08-28T10:10:35.951+09:00  INFO 4669 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-28T10:10:35.963+09:00  INFO 4669 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-28T10:10:35.963+09:00  INFO 4669 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2025-08-28T10:10:35.986+09:00  INFO 4669 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-28T10:10:35.987+09:00  INFO 4669 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1183 ms
+2025-08-28T10:10:36.078+09:00  INFO 4669 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-28T10:10:36.200+09:00  INFO 4669 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-08-28T10:10:36.200+09:00  INFO 4669 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-28T10:10:36.207+09:00  INFO 4669 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-08-28T10:10:36.292+09:00  INFO 4669 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-28T10:10:36.322+09:00  INFO 4669 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2025-08-28T10:10:36.340+09:00  INFO 4669 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-28T10:10:36.519+09:00  INFO 4669 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-28T10:10:37.314+09:00  INFO 4669 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists assignment cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists assignment cascade 
+
+    drop table if exists assignment cascade ;
+Hibernate: 
+    drop table if exists category cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists category cascade 
+
+    drop table if exists category cascade ;
+Hibernate: 
+    drop table if exists community_post cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists community_post cascade 
+
+    drop table if exists community_post cascade ;
+Hibernate: 
+    drop table if exists community_comment cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists community_comment cascade 
+
+    drop table if exists community_comment cascade ;
+Hibernate: 
+    drop table if exists curriculum cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists curriculum cascade 
+
+    drop table if exists curriculum cascade ;
+Hibernate: 
+    drop table if exists curriculum_file cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists curriculum_file cascade 
+
+    drop table if exists curriculum_file cascade ;
+Hibernate: 
+    drop table if exists files cascade 
+2025-08-28T10:10:37.324+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437324 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists files cascade 
+
+    drop table if exists files cascade ;
+Hibernate: 
+    drop table if exists gaji_vote cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists gaji_vote cascade 
+
+    drop table if exists gaji_vote cascade ;
+Hibernate: 
+    drop table if exists hashtag cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists hashtag cascade 
+
+    drop table if exists hashtag cascade ;
+Hibernate: 
+    drop table if exists material cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists material cascade 
+
+    drop table if exists material cascade ;
+Hibernate: 
+    drop table if exists notice_confirmation cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists notice_confirmation cascade 
+
+    drop table if exists notice_confirmation cascade ;
+Hibernate: 
+    drop table if exists post_bookmark cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists post_bookmark cascade 
+
+    drop table if exists post_bookmark cascade ;
+Hibernate: 
+    drop table if exists post_file cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists post_file cascade 
+
+    drop table if exists post_file cascade ;
+Hibernate: 
+    drop table if exists post_likes cascade 
+2025-08-28T10:10:37.325+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437325 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists post_likes cascade 
+
+    drop table if exists post_likes cascade ;
+Hibernate: 
+    drop table if exists recruit_post_bookmark cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists recruit_post_bookmark cascade 
+
+    drop table if exists recruit_post_bookmark cascade ;
+Hibernate: 
+    drop table if exists recruit_post_likes cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists recruit_post_likes cascade 
+
+    drop table if exists recruit_post_likes cascade ;
+Hibernate: 
+    drop table if exists refresh_entity cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists refresh_entity cascade 
+
+    drop table if exists refresh_entity cascade ;
+Hibernate: 
+    drop table if exists report cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists report cascade 
+
+    drop table if exists report cascade ;
+Hibernate: 
+    drop table if exists room cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists room cascade 
+
+    drop table if exists room cascade ;
+Hibernate: 
+    drop table if exists room_event cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists room_event cascade 
+
+    drop table if exists room_event cascade ;
+Hibernate: 
+    drop table if exists room_notice cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists room_notice cascade 
+
+    drop table if exists room_notice cascade ;
+Hibernate: 
+    drop table if exists search_keyword cascade 
+2025-08-28T10:10:37.326+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437326 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists search_keyword cascade 
+
+    drop table if exists search_keyword cascade ;
+Hibernate: 
+    drop table if exists select_category cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists select_category cascade 
+
+    drop table if exists select_category cascade ;
+Hibernate: 
+    drop table if exists select_hashtag cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists select_hashtag cascade 
+
+    drop table if exists select_hashtag cascade ;
+Hibernate: 
+    drop table if exists study_applicant cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists study_applicant cascade 
+
+    drop table if exists study_applicant cascade ;
+Hibernate: 
+    drop table if exists study_comment cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists study_comment cascade 
+
+    drop table if exists study_comment cascade ;
+Hibernate: 
+    drop table if exists study_comment_likes cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists study_comment_likes cascade 
+
+    drop table if exists study_comment_likes cascade ;
+Hibernate: 
+    drop table if exists study_mate cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists study_mate cascade 
+
+    drop table if exists study_mate cascade ;
+Hibernate: 
+    drop table if exists term cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists term cascade 
+
+    drop table if exists term cascade ;
+Hibernate: 
+    drop table if exists term_agree cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists term_agree cascade 
+
+    drop table if exists term_agree cascade ;
+Hibernate: 
+    drop table if exists token cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists token cascade 
+
+    drop table if exists token cascade ;
+Hibernate: 
+    drop table if exists user_assignment cascade 
+2025-08-28T10:10:37.327+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437327 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists user_assignment cascade 
+
+    drop table if exists user_assignment cascade ;
+Hibernate: 
+    drop table if exists users cascade 
+2025-08-28T10:10:37.328+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437328 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists users cascade 
+
+    drop table if exists users cascade ;
+Hibernate: 
+    drop table if exists uuid cascade 
+2025-08-28T10:10:37.328+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437328 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists uuid cascade 
+
+    drop table if exists uuid cascade ;
+Hibernate: 
+    drop table if exists weekly_user_progress cascade 
+2025-08-28T10:10:37.328+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437328 | took 0ms | statement | connection 2| url jdbc:h2:mem:testdb
+
+    drop table if exists weekly_user_progress cascade 
+
+    drop table if exists weekly_user_progress cascade ;
+Hibernate: 
+    create table assignment (
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        body varchar(30),
+        primary key (id)
+    )
+2025-08-28T10:10:37.335+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437335 | took 4ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table assignment (
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        body varchar(30),
+        primary key (id)
+    )
+
+    create table assignment (
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        body varchar(30),
+        primary key (id)
+    );
+Hibernate: 
+    create table category (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        category enum ('AI','BOOK','BUSINESS','DESIGN','DEVELOP','ETC','HW','LANGUAGE','NETWORK','SECURITY'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.336+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437336 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table category (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        category enum ('AI','BOOK','BUSINESS','DESIGN','DEVELOP','ETC','HW','LANGUAGE','NETWORK','SECURITY'),
+        primary key (id)
+    )
+
+    create table category (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        category enum ('AI','BOOK','BUSINESS','DESIGN','DEVELOP','ETC','HW','LANGUAGE','NETWORK','SECURITY'),
+        primary key (id)
+    );
+Hibernate: 
+    create table community_post (
+        bookmark_cnt integer not null,
+        comment_cnt integer not null,
+        comment_group_num integer not null,
+        hit integer not null,
+        like_cnt integer not null,
+        popularity_score integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        thumbnail_url varchar(255),
+        title varchar(255) not null,
+        body TEXT not null,
+        status enum ('BLOGING','DELETED','NEED_RESOLUTION','RECRUITING','RECRUITMENT_COMPLETED','RESOLVED','TEMPORARY') not null,
+        type enum ('BLOG','PROJECT','QUESTION','ROOM') not null,
+        primary key (id)
+    )
+2025-08-28T10:10:37.337+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437337 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table community_post (
+        bookmark_cnt integer not null,
+        comment_cnt integer not null,
+        comment_group_num integer not null,
+        hit integer not null,
+        like_cnt integer not null,
+        popularity_score integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        thumbnail_url varchar(255),
+        title varchar(255) not null,
+        body TEXT not null,
+        status enum ('BLOGING','DELETED','NEED_RESOLUTION','RECRUITING','RECRUITMENT_COMPLETED','RESOLVED','TEMPORARY') not null,
+        type enum ('BLOG','PROJECT','QUESTION','ROOM') not null,
+        primary key (id)
+    )
+
+    create table community_post (
+        bookmark_cnt integer not null,
+        comment_cnt integer not null,
+        comment_group_num integer not null,
+        hit integer not null,
+        like_cnt integer not null,
+        popularity_score integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        thumbnail_url varchar(255),
+        title varchar(255) not null,
+        body TEXT not null,
+        status enum ('BLOGING','DELETED','NEED_RESOLUTION','RECRUITING','RECRUITMENT_COMPLETED','RESOLVED','TEMPORARY') not null,
+        type enum ('BLOG','PROJECT','QUESTION','ROOM') not null,
+        primary key (id)
+    );
+Hibernate: 
+    create table community_comment (
+        depth integer not null,
+        group_num integer,
+        comment_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        post_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.338+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437338 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table community_comment (
+        depth integer not null,
+        group_num integer,
+        comment_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        post_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    )
+
+    create table community_comment (
+        depth integer not null,
+        group_num integer,
+        comment_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        post_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    );
+Hibernate: 
+    create table curriculum (
+        id bigint generated by default as identity,
+        body varchar(255),
+        name varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.339+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437339 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table curriculum (
+        id bigint generated by default as identity,
+        body varchar(255),
+        name varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+
+    create table curriculum (
+        id bigint generated by default as identity,
+        body varchar(255),
+        name varchar(255),
+        title varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table curriculum_file (
+        curriculum_id bigint,
+        id bigint generated by default as identity,
+        description varchar(255),
+        path varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.339+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437339 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table curriculum_file (
+        curriculum_id bigint,
+        id bigint generated by default as identity,
+        description varchar(255),
+        path varchar(255),
+        primary key (id)
+    )
+
+    create table curriculum_file (
+        curriculum_id bigint,
+        id bigint generated by default as identity,
+        description varchar(255),
+        path varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table files (
+        file_size integer,
+        id bigint generated by default as identity,
+        file_name varchar(255),
+        original_name varchar(255),
+        path varchar(255),
+        type varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.340+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437340 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table files (
+        file_size integer,
+        id bigint generated by default as identity,
+        file_name varchar(255),
+        original_name varchar(255),
+        path varchar(255),
+        type varchar(255),
+        primary key (id)
+    )
+
+    create table files (
+        file_size integer,
+        id bigint generated by default as identity,
+        file_name varchar(255),
+        original_name varchar(255),
+        path varchar(255),
+        type varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table gaji_vote (
+        vote_count integer not null,
+        id bigint generated by default as identity,
+        character_name varchar(255),
+        email varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.340+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437340 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table gaji_vote (
+        vote_count integer not null,
+        id bigint generated by default as identity,
+        character_name varchar(255),
+        email varchar(255),
+        primary key (id)
+    )
+
+    create table gaji_vote (
+        vote_count integer not null,
+        id bigint generated by default as identity,
+        character_name varchar(255),
+        email varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table hashtag (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        name varchar(15) not null,
+        primary key (id)
+    )
+2025-08-28T10:10:37.341+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437341 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table hashtag (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        name varchar(15) not null,
+        primary key (id)
+    )
+
+    create table hashtag (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        name varchar(15) not null,
+        primary key (id)
+    );
+Hibernate: 
+    create table material (
+        id bigint generated by default as identity,
+        room_id bigint,
+        path varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.341+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437341 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table material (
+        id bigint generated by default as identity,
+        room_id bigint,
+        path varchar(255),
+        primary key (id)
+    )
+
+    create table material (
+        id bigint generated by default as identity,
+        room_id bigint,
+        path varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table notice_confirmation (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        room_notice_id bigint,
+        study_mate_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.342+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437342 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table notice_confirmation (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        room_notice_id bigint,
+        study_mate_id bigint,
+        primary key (id)
+    )
+
+    create table notice_confirmation (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        room_notice_id bigint,
+        study_mate_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table post_bookmark (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.344+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437344 | took 1ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table post_bookmark (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table post_bookmark (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table post_file (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        path varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.344+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437344 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table post_file (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        path varchar(255),
+        primary key (id)
+    )
+
+    create table post_file (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        path varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table post_likes (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.345+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437345 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table post_likes (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table post_likes (
+        id bigint generated by default as identity,
+        post_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table recruit_post_bookmark (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.345+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437345 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table recruit_post_bookmark (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table recruit_post_bookmark (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table recruit_post_likes (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.346+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437346 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table recruit_post_likes (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table recruit_post_likes (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table refresh_entity (
+        id bigint generated by default as identity,
+        expiration varchar(255),
+        refresh varchar(255),
+        username varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.346+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437346 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table refresh_entity (
+        id bigint generated by default as identity,
+        expiration varchar(255),
+        refresh varchar(255),
+        username varchar(255),
+        primary key (id)
+    )
+
+    create table refresh_entity (
+        id bigint generated by default as identity,
+        expiration varchar(255),
+        refresh varchar(255),
+        username varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table report (
+        entity_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        description varchar(255),
+        report_type enum ('FRAUD','INAPPROPRIATE_CONTENT','OTHER','SPAM'),
+        type enum ('BLOG','PROJECT_RECRUITMENT','QUESTION','RECRUITMENT'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.347+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437347 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table report (
+        entity_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        description varchar(255),
+        report_type enum ('FRAUD','INAPPROPRIATE_CONTENT','OTHER','SPAM'),
+        type enum ('BLOG','PROJECT_RECRUITMENT','QUESTION','RECRUITMENT'),
+        primary key (id)
+    )
+
+    create table report (
+        entity_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        description varchar(255),
+        report_type enum ('FRAUD','INAPPROPRIATE_CONTENT','OTHER','SPAM'),
+        type enum ('BLOG','PROJECT_RECRUITMENT','QUESTION','RECRUITMENT'),
+        primary key (id)
+    );
+Hibernate: 
+    create table room (
+        bookmarks integer not null,
+        comment_count integer not null,
+        head_count integer not null,
+        is_private boolean not null,
+        likes integer not null,
+        people_limited boolean not null,
+        people_maximum integer not null,
+        recruit_end_day date,
+        recruit_post_type_enum tinyint check (recruit_post_type_enum between 0 and 3),
+        recruit_start_day date,
+        study_end_day date,
+        study_start_day date,
+        views integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        invite_code varchar(20),
+        name varchar(20),
+        description varchar(255),
+        thumbnail_url varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.350+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437350 | took 2ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table room (
+        bookmarks integer not null,
+        comment_count integer not null,
+        head_count integer not null,
+        is_private boolean not null,
+        likes integer not null,
+        people_limited boolean not null,
+        people_maximum integer not null,
+        recruit_end_day date,
+        recruit_post_type_enum tinyint check (recruit_post_type_enum between 0 and 3),
+        recruit_start_day date,
+        study_end_day date,
+        study_start_day date,
+        views integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        invite_code varchar(20),
+        name varchar(20),
+        description varchar(255),
+        thumbnail_url varchar(255),
+        primary key (id)
+    )
+
+    create table room (
+        bookmarks integer not null,
+        comment_count integer not null,
+        head_count integer not null,
+        is_private boolean not null,
+        likes integer not null,
+        people_limited boolean not null,
+        people_maximum integer not null,
+        recruit_end_day date,
+        recruit_post_type_enum tinyint check (recruit_post_type_enum between 0 and 3),
+        recruit_start_day date,
+        study_end_day date,
+        study_start_day date,
+        views integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        user_id bigint,
+        invite_code varchar(20),
+        name varchar(20),
+        description varchar(255),
+        thumbnail_url varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table room_event (
+        end_time date,
+        is_public boolean not null,
+        start_time date,
+        weeks integer,
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        title varchar(30),
+        description varchar(200),
+        primary key (id)
+    )
+2025-08-28T10:10:37.350+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437350 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table room_event (
+        end_time date,
+        is_public boolean not null,
+        start_time date,
+        weeks integer,
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        title varchar(30),
+        description varchar(200),
+        primary key (id)
+    )
+
+    create table room_event (
+        end_time date,
+        is_public boolean not null,
+        start_time date,
+        weeks integer,
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        title varchar(30),
+        description varchar(200),
+        primary key (id)
+    );
+Hibernate: 
+    create table room_notice (
+        confirm_count integer,
+        view_count integer,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        study_mate_id bigint,
+        body varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.351+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437351 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table room_notice (
+        confirm_count integer,
+        view_count integer,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        study_mate_id bigint,
+        body varchar(255),
+        title varchar(255),
+        primary key (id)
+    )
+
+    create table room_notice (
+        confirm_count integer,
+        view_count integer,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        study_mate_id bigint,
+        body varchar(255),
+        title varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table search_keyword (
+        id bigint generated by default as identity,
+        search_date timestamp(6),
+        user_id bigint,
+        keyword varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.351+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437351 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table search_keyword (
+        id bigint generated by default as identity,
+        search_date timestamp(6),
+        user_id bigint,
+        keyword varchar(255),
+        primary key (id)
+    )
+
+    create table search_keyword (
+        id bigint generated by default as identity,
+        search_date timestamp(6),
+        user_id bigint,
+        keyword varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table select_category (
+        category_id bigint,
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.352+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437352 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table select_category (
+        category_id bigint,
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    )
+
+    create table select_category (
+        category_id bigint,
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    );
+Hibernate: 
+    create table select_hashtag (
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        hashtag_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.353+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437353 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table select_hashtag (
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        hashtag_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    )
+
+    create table select_hashtag (
+        created_at timestamp(6) not null,
+        entity_id bigint,
+        hashtag_id bigint,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        type enum ('BLOG','PROJECT','QUESTION','ROOM'),
+        primary key (id)
+    );
+Hibernate: 
+    create table study_applicant (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        status enum ('Accepted','Pending','Rejected'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.353+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437353 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table study_applicant (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        status enum ('Accepted','Pending','Rejected'),
+        primary key (id)
+    )
+
+    create table study_applicant (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        status enum ('Accepted','Pending','Rejected'),
+        primary key (id)
+    );
+Hibernate: 
+    create table study_comment (
+        comment_order integer,
+        depth integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        parent_id bigint,
+        room_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.354+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437354 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table study_comment (
+        comment_order integer,
+        depth integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        parent_id bigint,
+        room_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    )
+
+    create table study_comment (
+        comment_order integer,
+        depth integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        last_modified_date timestamp(6),
+        parent_id bigint,
+        room_id bigint,
+        user_id bigint,
+        body varchar(255),
+        status enum ('DELETE','PRIVATE','PUBLIC','UPDATED'),
+        primary key (id)
+    );
+Hibernate: 
+    create table study_comment_likes (
+        comment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.354+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437354 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table study_comment_likes (
+        comment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table study_comment_likes (
+        comment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table study_mate (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        role enum ('MEMBER','READER'),
+        primary key (id)
+    )
+2025-08-28T10:10:37.355+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437355 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table study_mate (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        role enum ('MEMBER','READER'),
+        primary key (id)
+    )
+
+    create table study_mate (
+        id bigint generated by default as identity,
+        room_id bigint,
+        user_id bigint,
+        role enum ('MEMBER','READER'),
+        primary key (id)
+    );
+Hibernate: 
+    create table term (
+        is_required boolean not null,
+        id bigint generated by default as identity,
+        content varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.355+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437355 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table term (
+        is_required boolean not null,
+        id bigint generated by default as identity,
+        content varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+
+    create table term (
+        is_required boolean not null,
+        id bigint generated by default as identity,
+        content varchar(255),
+        name varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table term_agree (
+        agree_date date,
+        is_agree boolean not null,
+        id bigint generated by default as identity,
+        term_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.356+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437356 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table term_agree (
+        agree_date date,
+        is_agree boolean not null,
+        id bigint generated by default as identity,
+        term_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table term_agree (
+        agree_date date,
+        is_agree boolean not null,
+        id bigint generated by default as identity,
+        term_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table token (
+        is_revoked tinyint check (is_revoked between 0 and 1),
+        expired_at timestamp(6),
+        id bigint generated by default as identity,
+        issued_at timestamp(6),
+        user_id bigint,
+        refresh_token varchar(255),
+        primary key (id)
+    )
+2025-08-28T10:10:37.356+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437356 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table token (
+        is_revoked tinyint check (is_revoked between 0 and 1),
+        expired_at timestamp(6),
+        id bigint generated by default as identity,
+        issued_at timestamp(6),
+        user_id bigint,
+        refresh_token varchar(255),
+        primary key (id)
+    )
+
+    create table token (
+        is_revoked tinyint check (is_revoked between 0 and 1),
+        expired_at timestamp(6),
+        id bigint generated by default as identity,
+        issued_at timestamp(6),
+        user_id bigint,
+        refresh_token varchar(255),
+        primary key (id)
+    );
+Hibernate: 
+    create table user_assignment (
+        is_complete boolean not null,
+        assignment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.357+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437357 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table user_assignment (
+        is_complete boolean not null,
+        assignment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table user_assignment (
+        is_complete boolean not null,
+        assignment_id bigint,
+        id bigint generated by default as identity,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    create table users (
+        created_at timestamp(6) not null,
+        inactive_time timestamp(6),
+        last_modified_date timestamp(6),
+        user_id bigint generated by default as identity,
+        nickname varchar(255) default '가지돌이',
+        profile_image_pth varchar(255),
+        username_id varchar(255),
+        role enum ('ROLE_ROOT','ROLE_USER'),
+        social_type enum ('GOOGLE','KAKAO'),
+        status enum ('ACTIVE','IN_ACTIVE'),
+        primary key (user_id)
+    )
+2025-08-28T10:10:37.358+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437358 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table users (
+        created_at timestamp(6) not null,
+        inactive_time timestamp(6),
+        last_modified_date timestamp(6),
+        user_id bigint generated by default as identity,
+        nickname varchar(255) default '가지돌이',
+        profile_image_pth varchar(255),
+        username_id varchar(255),
+        role enum ('ROLE_ROOT','ROLE_USER'),
+        social_type enum ('GOOGLE','KAKAO'),
+        status enum ('ACTIVE','IN_ACTIVE'),
+        primary key (user_id)
+    )
+
+    create table users (
+        created_at timestamp(6) not null,
+        inactive_time timestamp(6),
+        last_modified_date timestamp(6),
+        user_id bigint generated by default as identity,
+        nickname varchar(255) default '가지돌이',
+        profile_image_pth varchar(255),
+        username_id varchar(255),
+        role enum ('ROLE_ROOT','ROLE_USER'),
+        social_type enum ('GOOGLE','KAKAO'),
+        status enum ('ACTIVE','IN_ACTIVE'),
+        primary key (user_id)
+    );
+Hibernate: 
+    create table uuid (
+        id bigint generated by default as identity,
+        uuid varchar(255) unique,
+        primary key (id)
+    )
+2025-08-28T10:10:37.359+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437359 | took 1ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table uuid (
+        id bigint generated by default as identity,
+        uuid varchar(255) unique,
+        primary key (id)
+    )
+
+    create table uuid (
+        id bigint generated by default as identity,
+        uuid varchar(255) unique,
+        primary key (id)
+    );
+Hibernate: 
+    create table weekly_user_progress (
+        completed_assignments integer,
+        progress_percentage float(53),
+        total_assignments integer,
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+2025-08-28T10:10:37.360+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437360 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    create table weekly_user_progress (
+        completed_assignments integer,
+        progress_percentage float(53),
+        total_assignments integer,
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        user_id bigint,
+        primary key (id)
+    )
+
+    create table weekly_user_progress (
+        completed_assignments integer,
+        progress_percentage float(53),
+        total_assignments integer,
+        id bigint generated by default as identity,
+        room_event_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+Hibernate: 
+    alter table if exists assignment 
+       add constraint FKbxcvet2orhmnmcrtb9d4omov5 
+       foreign key (room_event_id) 
+       references room_event
+2025-08-28T10:10:37.364+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437364 | took 4ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists assignment 
+       add constraint FKbxcvet2orhmnmcrtb9d4omov5 
+       foreign key (room_event_id) 
+       references room_event
+
+    alter table if exists assignment 
+       add constraint FKbxcvet2orhmnmcrtb9d4omov5 
+       foreign key (room_event_id) 
+       references room_event;
+Hibernate: 
+    alter table if exists community_post 
+       add constraint FK990gbjvs9ma88y8p33hnail9y 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.365+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437365 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists community_post 
+       add constraint FK990gbjvs9ma88y8p33hnail9y 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists community_post 
+       add constraint FK990gbjvs9ma88y8p33hnail9y 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists community_comment 
+       add constraint FKsj9ibkgb6vuqr8wr354eq0cok 
+       foreign key (comment_id) 
+       references community_comment
+2025-08-28T10:10:37.365+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437365 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists community_comment 
+       add constraint FKsj9ibkgb6vuqr8wr354eq0cok 
+       foreign key (comment_id) 
+       references community_comment
+
+    alter table if exists community_comment 
+       add constraint FKsj9ibkgb6vuqr8wr354eq0cok 
+       foreign key (comment_id) 
+       references community_comment;
+Hibernate: 
+    alter table if exists community_comment 
+       add constraint FKrve078nctpgytx54f5jp98po3 
+       foreign key (post_id) 
+       references community_post
+2025-08-28T10:10:37.366+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437366 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists community_comment 
+       add constraint FKrve078nctpgytx54f5jp98po3 
+       foreign key (post_id) 
+       references community_post
+
+    alter table if exists community_comment 
+       add constraint FKrve078nctpgytx54f5jp98po3 
+       foreign key (post_id) 
+       references community_post;
+Hibernate: 
+    alter table if exists community_comment 
+       add constraint FKs9gc75wej6pldfjq4rfhioqli 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.367+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437367 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists community_comment 
+       add constraint FKs9gc75wej6pldfjq4rfhioqli 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists community_comment 
+       add constraint FKs9gc75wej6pldfjq4rfhioqli 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists curriculum_file 
+       add constraint FK4vys9cubnmy2e3ir6lxnqt86s 
+       foreign key (curriculum_id) 
+       references curriculum
+2025-08-28T10:10:37.367+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437367 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists curriculum_file 
+       add constraint FK4vys9cubnmy2e3ir6lxnqt86s 
+       foreign key (curriculum_id) 
+       references curriculum
+
+    alter table if exists curriculum_file 
+       add constraint FK4vys9cubnmy2e3ir6lxnqt86s 
+       foreign key (curriculum_id) 
+       references curriculum;
+Hibernate: 
+    alter table if exists material 
+       add constraint FKm2kpkr9a4dxe6c7y8gva6dnv3 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.368+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437368 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists material 
+       add constraint FKm2kpkr9a4dxe6c7y8gva6dnv3 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists material 
+       add constraint FKm2kpkr9a4dxe6c7y8gva6dnv3 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists notice_confirmation 
+       add constraint FKo7xrfu8htf2avcqkkkmgq6ym8 
+       foreign key (room_notice_id) 
+       references room_notice
+2025-08-28T10:10:37.368+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437368 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists notice_confirmation 
+       add constraint FKo7xrfu8htf2avcqkkkmgq6ym8 
+       foreign key (room_notice_id) 
+       references room_notice
+
+    alter table if exists notice_confirmation 
+       add constraint FKo7xrfu8htf2avcqkkkmgq6ym8 
+       foreign key (room_notice_id) 
+       references room_notice;
+Hibernate: 
+    alter table if exists notice_confirmation 
+       add constraint FK2upvmsgc4m5yy5y4twsjvmulv 
+       foreign key (study_mate_id) 
+       references study_mate
+2025-08-28T10:10:37.369+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437369 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists notice_confirmation 
+       add constraint FK2upvmsgc4m5yy5y4twsjvmulv 
+       foreign key (study_mate_id) 
+       references study_mate
+
+    alter table if exists notice_confirmation 
+       add constraint FK2upvmsgc4m5yy5y4twsjvmulv 
+       foreign key (study_mate_id) 
+       references study_mate;
+Hibernate: 
+    alter table if exists post_bookmark 
+       add constraint FKsvpwwyhrdl19hrg950jyehask 
+       foreign key (post_id) 
+       references community_post
+2025-08-28T10:10:37.370+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437369 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_bookmark 
+       add constraint FKsvpwwyhrdl19hrg950jyehask 
+       foreign key (post_id) 
+       references community_post
+
+    alter table if exists post_bookmark 
+       add constraint FKsvpwwyhrdl19hrg950jyehask 
+       foreign key (post_id) 
+       references community_post;
+Hibernate: 
+    alter table if exists post_bookmark 
+       add constraint FK4l3uhqcur46pxjvaa2bilmlds 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.370+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437370 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_bookmark 
+       add constraint FK4l3uhqcur46pxjvaa2bilmlds 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists post_bookmark 
+       add constraint FK4l3uhqcur46pxjvaa2bilmlds 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists post_file 
+       add constraint FKkpdtftux1nnqfv4hnhogcviqy 
+       foreign key (post_id) 
+       references community_post
+2025-08-28T10:10:37.371+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437371 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_file 
+       add constraint FKkpdtftux1nnqfv4hnhogcviqy 
+       foreign key (post_id) 
+       references community_post
+
+    alter table if exists post_file 
+       add constraint FKkpdtftux1nnqfv4hnhogcviqy 
+       foreign key (post_id) 
+       references community_post;
+Hibernate: 
+    alter table if exists post_file 
+       add constraint FKdfsq5k45rs9busmr8w71ichfn 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.371+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437371 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_file 
+       add constraint FKdfsq5k45rs9busmr8w71ichfn 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists post_file 
+       add constraint FKdfsq5k45rs9busmr8w71ichfn 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists post_likes 
+       add constraint FKib0skqhqvn2woe4mg7pgqyw1p 
+       foreign key (post_id) 
+       references community_post
+2025-08-28T10:10:37.372+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437372 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_likes 
+       add constraint FKib0skqhqvn2woe4mg7pgqyw1p 
+       foreign key (post_id) 
+       references community_post
+
+    alter table if exists post_likes 
+       add constraint FKib0skqhqvn2woe4mg7pgqyw1p 
+       foreign key (post_id) 
+       references community_post;
+Hibernate: 
+    alter table if exists post_likes 
+       add constraint FKkgau5n0nlewg6o9lr4yibqgxj 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.373+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437373 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists post_likes 
+       add constraint FKkgau5n0nlewg6o9lr4yibqgxj 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists post_likes 
+       add constraint FKkgau5n0nlewg6o9lr4yibqgxj 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists recruit_post_bookmark 
+       add constraint FKfkdp44bq1p3o9497bttquhp23 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.373+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437373 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists recruit_post_bookmark 
+       add constraint FKfkdp44bq1p3o9497bttquhp23 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists recruit_post_bookmark 
+       add constraint FKfkdp44bq1p3o9497bttquhp23 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists recruit_post_bookmark 
+       add constraint FKp2erptxmtpqs7e9utfddns9hi 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.374+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437374 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists recruit_post_bookmark 
+       add constraint FKp2erptxmtpqs7e9utfddns9hi 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists recruit_post_bookmark 
+       add constraint FKp2erptxmtpqs7e9utfddns9hi 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists recruit_post_likes 
+       add constraint FK5qyg8syvk44nnshe874e6o8xs 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.374+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437374 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists recruit_post_likes 
+       add constraint FK5qyg8syvk44nnshe874e6o8xs 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists recruit_post_likes 
+       add constraint FK5qyg8syvk44nnshe874e6o8xs 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists recruit_post_likes 
+       add constraint FKmw2sse18ikslhie3d2s21hkpx 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.375+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437375 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists recruit_post_likes 
+       add constraint FKmw2sse18ikslhie3d2s21hkpx 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists recruit_post_likes 
+       add constraint FKmw2sse18ikslhie3d2s21hkpx 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists report 
+       add constraint FKq50wsn94sc3mi90gtidk0k34a 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.376+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437376 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists report 
+       add constraint FKq50wsn94sc3mi90gtidk0k34a 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists report 
+       add constraint FKq50wsn94sc3mi90gtidk0k34a 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists room 
+       add constraint FKrsc9pb9h33996lww769sk8s6x 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.376+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437376 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists room 
+       add constraint FKrsc9pb9h33996lww769sk8s6x 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists room 
+       add constraint FKrsc9pb9h33996lww769sk8s6x 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists room_event 
+       add constraint FKi43b96a9h7nu0blvpsr6ojxvy 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.377+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437377 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists room_event 
+       add constraint FKi43b96a9h7nu0blvpsr6ojxvy 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists room_event 
+       add constraint FKi43b96a9h7nu0blvpsr6ojxvy 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists room_event 
+       add constraint FKp54cp4arlbeip5nyjtc0keopa 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.378+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437378 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists room_event 
+       add constraint FKp54cp4arlbeip5nyjtc0keopa 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists room_event 
+       add constraint FKp54cp4arlbeip5nyjtc0keopa 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists room_notice 
+       add constraint FKcnim9hm3xdl1dwiff23uopq43 
+       foreign key (study_mate_id) 
+       references study_mate
+2025-08-28T10:10:37.378+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437378 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists room_notice 
+       add constraint FKcnim9hm3xdl1dwiff23uopq43 
+       foreign key (study_mate_id) 
+       references study_mate
+
+    alter table if exists room_notice 
+       add constraint FKcnim9hm3xdl1dwiff23uopq43 
+       foreign key (study_mate_id) 
+       references study_mate;
+Hibernate: 
+    alter table if exists search_keyword 
+       add constraint FKeokvir0nkwbo39oe5t5k6mrkh 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.379+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437379 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists search_keyword 
+       add constraint FKeokvir0nkwbo39oe5t5k6mrkh 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists search_keyword 
+       add constraint FKeokvir0nkwbo39oe5t5k6mrkh 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists select_category 
+       add constraint FK2qqmqqqpx8jt50h4e06jv6b8p 
+       foreign key (category_id) 
+       references category
+2025-08-28T10:10:37.379+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437379 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists select_category 
+       add constraint FK2qqmqqqpx8jt50h4e06jv6b8p 
+       foreign key (category_id) 
+       references category
+
+    alter table if exists select_category 
+       add constraint FK2qqmqqqpx8jt50h4e06jv6b8p 
+       foreign key (category_id) 
+       references category;
+Hibernate: 
+    alter table if exists select_hashtag 
+       add constraint FK5lhgbdwctewhy42e2m32luh3t 
+       foreign key (hashtag_id) 
+       references hashtag
+2025-08-28T10:10:37.380+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437380 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists select_hashtag 
+       add constraint FK5lhgbdwctewhy42e2m32luh3t 
+       foreign key (hashtag_id) 
+       references hashtag
+
+    alter table if exists select_hashtag 
+       add constraint FK5lhgbdwctewhy42e2m32luh3t 
+       foreign key (hashtag_id) 
+       references hashtag;
+Hibernate: 
+    alter table if exists study_applicant 
+       add constraint FKm1vnt6wkflk4rgq0daswey58y 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.380+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437380 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_applicant 
+       add constraint FKm1vnt6wkflk4rgq0daswey58y 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists study_applicant 
+       add constraint FKm1vnt6wkflk4rgq0daswey58y 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists study_applicant 
+       add constraint FKedy701efh3muaptse9u1aryi7 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.381+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437381 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_applicant 
+       add constraint FKedy701efh3muaptse9u1aryi7 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists study_applicant 
+       add constraint FKedy701efh3muaptse9u1aryi7 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists study_comment 
+       add constraint FKomgq5uic9thrcxww40hictf1y 
+       foreign key (parent_id) 
+       references study_comment
+2025-08-28T10:10:37.382+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437382 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_comment 
+       add constraint FKomgq5uic9thrcxww40hictf1y 
+       foreign key (parent_id) 
+       references study_comment
+
+    alter table if exists study_comment 
+       add constraint FKomgq5uic9thrcxww40hictf1y 
+       foreign key (parent_id) 
+       references study_comment;
+Hibernate: 
+    alter table if exists study_comment 
+       add constraint FK4oo8d4549j5se4c2dtgowilu9 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.382+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437382 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_comment 
+       add constraint FK4oo8d4549j5se4c2dtgowilu9 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists study_comment 
+       add constraint FK4oo8d4549j5se4c2dtgowilu9 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists study_comment 
+       add constraint FK192nmhv1x9th0vrlgnwk64x5k 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.383+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437383 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_comment 
+       add constraint FK192nmhv1x9th0vrlgnwk64x5k 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists study_comment 
+       add constraint FK192nmhv1x9th0vrlgnwk64x5k 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists study_comment_likes 
+       add constraint FKqo6lq0t75jyqkqfu6jabt0p44 
+       foreign key (comment_id) 
+       references study_comment
+2025-08-28T10:10:37.383+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437383 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_comment_likes 
+       add constraint FKqo6lq0t75jyqkqfu6jabt0p44 
+       foreign key (comment_id) 
+       references study_comment
+
+    alter table if exists study_comment_likes 
+       add constraint FKqo6lq0t75jyqkqfu6jabt0p44 
+       foreign key (comment_id) 
+       references study_comment;
+Hibernate: 
+    alter table if exists study_comment_likes 
+       add constraint FKip65v5rg6xq44g9umvb8lcmoq 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.384+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437384 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_comment_likes 
+       add constraint FKip65v5rg6xq44g9umvb8lcmoq 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists study_comment_likes 
+       add constraint FKip65v5rg6xq44g9umvb8lcmoq 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists study_mate 
+       add constraint FKm3kfvhgock9r6at9pjfusese1 
+       foreign key (room_id) 
+       references room
+2025-08-28T10:10:37.384+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437384 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_mate 
+       add constraint FKm3kfvhgock9r6at9pjfusese1 
+       foreign key (room_id) 
+       references room
+
+    alter table if exists study_mate 
+       add constraint FKm3kfvhgock9r6at9pjfusese1 
+       foreign key (room_id) 
+       references room;
+Hibernate: 
+    alter table if exists study_mate 
+       add constraint FKlg6al8508rxlsfvo0huifuq6f 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.385+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437385 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists study_mate 
+       add constraint FKlg6al8508rxlsfvo0huifuq6f 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists study_mate 
+       add constraint FKlg6al8508rxlsfvo0huifuq6f 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists term_agree 
+       add constraint FK27gr7g8sgbg7ig1m2yb1j1gmv 
+       foreign key (term_id) 
+       references term
+2025-08-28T10:10:37.385+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437385 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists term_agree 
+       add constraint FK27gr7g8sgbg7ig1m2yb1j1gmv 
+       foreign key (term_id) 
+       references term
+
+    alter table if exists term_agree 
+       add constraint FK27gr7g8sgbg7ig1m2yb1j1gmv 
+       foreign key (term_id) 
+       references term;
+Hibernate: 
+    alter table if exists term_agree 
+       add constraint FKp6er25wi3nq704opm22576ebr 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.386+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437386 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists term_agree 
+       add constraint FKp6er25wi3nq704opm22576ebr 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists term_agree 
+       add constraint FKp6er25wi3nq704opm22576ebr 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists token 
+       add constraint FKj8rfw4x0wjjyibfqq566j4qng 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.386+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437386 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists token 
+       add constraint FKj8rfw4x0wjjyibfqq566j4qng 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists token 
+       add constraint FKj8rfw4x0wjjyibfqq566j4qng 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists user_assignment 
+       add constraint FK4ga5wfrp4a4stnjheci9psxh9 
+       foreign key (assignment_id) 
+       references assignment
+2025-08-28T10:10:37.387+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437387 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists user_assignment 
+       add constraint FK4ga5wfrp4a4stnjheci9psxh9 
+       foreign key (assignment_id) 
+       references assignment
+
+    alter table if exists user_assignment 
+       add constraint FK4ga5wfrp4a4stnjheci9psxh9 
+       foreign key (assignment_id) 
+       references assignment;
+Hibernate: 
+    alter table if exists user_assignment 
+       add constraint FK5pf3qtfupsrcf142n9ljluj4c 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.388+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437388 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists user_assignment 
+       add constraint FK5pf3qtfupsrcf142n9ljluj4c 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists user_assignment 
+       add constraint FK5pf3qtfupsrcf142n9ljluj4c 
+       foreign key (user_id) 
+       references users;
+Hibernate: 
+    alter table if exists weekly_user_progress 
+       add constraint FKlov851wcy5wh9n07c4vkcrvfm 
+       foreign key (room_event_id) 
+       references room_event
+2025-08-28T10:10:37.389+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437389 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists weekly_user_progress 
+       add constraint FKlov851wcy5wh9n07c4vkcrvfm 
+       foreign key (room_event_id) 
+       references room_event
+
+    alter table if exists weekly_user_progress 
+       add constraint FKlov851wcy5wh9n07c4vkcrvfm 
+       foreign key (room_event_id) 
+       references room_event;
+Hibernate: 
+    alter table if exists weekly_user_progress 
+       add constraint FKr3tr2jahegr6ged1d6whaupvh 
+       foreign key (user_id) 
+       references users
+2025-08-28T10:10:37.389+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343437389 | took 0ms | statement | connection 3| url jdbc:h2:mem:testdb
+
+    alter table if exists weekly_user_progress 
+       add constraint FKr3tr2jahegr6ged1d6whaupvh 
+       foreign key (user_id) 
+       references users
+
+    alter table if exists weekly_user_progress 
+       add constraint FKr3tr2jahegr6ged1d6whaupvh 
+       foreign key (user_id) 
+       references users;
+2025-08-28T10:10:37.392+09:00  INFO 4669 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-28T10:10:37.817+09:00  INFO 4669 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-28T10:10:38.118+09:00  WARN 4669 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-28T10:10:38.642+09:00  WARN 4669 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recruitController' defined in URL [jar:nested:/Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main/build/libs/gaji.jar/!BOOT-INF/classes/!/gaji/service/domain/recruit/web/controller/RecruitController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'recruitCommandServiceImpl' defined in URL [jar:nested:/Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main/build/libs/gaji.jar/!BOOT-INF/classes/!/gaji/service/domain/recruit/service/RecruitCommandServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'roomCommandServiceImpl' defined in URL [jar:nested:/Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main/build/libs/gaji.jar/!BOOT-INF/classes/!/gaji/service/domain/room/service/RoomCommandServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'roomQueryServiceImpl' defined in URL [jar:nested:/Users/admin/Desktop/공부/Spring/projects/GAJI-Server-v2.0-refactor-main/build/libs/gaji.jar/!BOOT-INF/classes/!/gaji/service/domain/room/service/RoomQueryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 5: Error creating bean with name 'springSecurityFilterChain': Cannot create inner bean '(inner bean)#367e6aa4' while setting constructor argument with key [1]
+2025-08-28T10:10:38.643+09:00  INFO 4669 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+Hibernate: 
+    drop table if exists assignment cascade 
+2025-08-28T10:10:38.646+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438646 | took 1ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists assignment cascade 
+
+    drop table if exists assignment cascade ;
+Hibernate: 
+    drop table if exists category cascade 
+2025-08-28T10:10:38.646+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438646 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists category cascade 
+
+    drop table if exists category cascade ;
+Hibernate: 
+    drop table if exists community_post cascade 
+2025-08-28T10:10:38.647+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438647 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists community_post cascade 
+
+    drop table if exists community_post cascade ;
+Hibernate: 
+    drop table if exists community_comment cascade 
+2025-08-28T10:10:38.647+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438647 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists community_comment cascade 
+
+    drop table if exists community_comment cascade ;
+Hibernate: 
+    drop table if exists curriculum cascade 
+2025-08-28T10:10:38.648+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438648 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists curriculum cascade 
+
+    drop table if exists curriculum cascade ;
+Hibernate: 
+    drop table if exists curriculum_file cascade 
+2025-08-28T10:10:38.648+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438648 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists curriculum_file cascade 
+
+    drop table if exists curriculum_file cascade ;
+Hibernate: 
+    drop table if exists files cascade 
+2025-08-28T10:10:38.648+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438648 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists files cascade 
+
+    drop table if exists files cascade ;
+Hibernate: 
+    drop table if exists gaji_vote cascade 
+2025-08-28T10:10:38.648+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438648 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists gaji_vote cascade 
+
+    drop table if exists gaji_vote cascade ;
+Hibernate: 
+    drop table if exists hashtag cascade 
+2025-08-28T10:10:38.649+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438649 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists hashtag cascade 
+
+    drop table if exists hashtag cascade ;
+Hibernate: 
+    drop table if exists material cascade 
+2025-08-28T10:10:38.649+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438649 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists material cascade 
+
+    drop table if exists material cascade ;
+Hibernate: 
+    drop table if exists notice_confirmation cascade 
+2025-08-28T10:10:38.649+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438649 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists notice_confirmation cascade 
+
+    drop table if exists notice_confirmation cascade ;
+Hibernate: 
+    drop table if exists post_bookmark cascade 
+2025-08-28T10:10:38.649+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438649 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists post_bookmark cascade 
+
+    drop table if exists post_bookmark cascade ;
+Hibernate: 
+    drop table if exists post_file cascade 
+2025-08-28T10:10:38.650+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438650 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists post_file cascade 
+
+    drop table if exists post_file cascade ;
+Hibernate: 
+    drop table if exists post_likes cascade 
+2025-08-28T10:10:38.650+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438650 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists post_likes cascade 
+
+    drop table if exists post_likes cascade ;
+Hibernate: 
+    drop table if exists recruit_post_bookmark cascade 
+2025-08-28T10:10:38.650+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438650 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists recruit_post_bookmark cascade 
+
+    drop table if exists recruit_post_bookmark cascade ;
+Hibernate: 
+    drop table if exists recruit_post_likes cascade 
+2025-08-28T10:10:38.650+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438650 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists recruit_post_likes cascade 
+
+    drop table if exists recruit_post_likes cascade ;
+Hibernate: 
+    drop table if exists refresh_entity cascade 
+2025-08-28T10:10:38.651+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438651 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists refresh_entity cascade 
+
+    drop table if exists refresh_entity cascade ;
+Hibernate: 
+    drop table if exists report cascade 
+2025-08-28T10:10:38.651+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438651 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists report cascade 
+
+    drop table if exists report cascade ;
+Hibernate: 
+    drop table if exists room cascade 
+2025-08-28T10:10:38.651+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438651 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists room cascade 
+
+    drop table if exists room cascade ;
+Hibernate: 
+    drop table if exists room_event cascade 
+2025-08-28T10:10:38.651+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438651 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists room_event cascade 
+
+    drop table if exists room_event cascade ;
+Hibernate: 
+    drop table if exists room_notice cascade 
+2025-08-28T10:10:38.652+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438652 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists room_notice cascade 
+
+    drop table if exists room_notice cascade ;
+Hibernate: 
+    drop table if exists search_keyword cascade 
+2025-08-28T10:10:38.652+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438652 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists search_keyword cascade 
+
+    drop table if exists search_keyword cascade ;
+Hibernate: 
+    drop table if exists select_category cascade 
+2025-08-28T10:10:38.652+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438652 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists select_category cascade 
+
+    drop table if exists select_category cascade ;
+Hibernate: 
+    drop table if exists select_hashtag cascade 
+2025-08-28T10:10:38.652+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438652 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists select_hashtag cascade 
+
+    drop table if exists select_hashtag cascade ;
+Hibernate: 
+    drop table if exists study_applicant cascade 
+2025-08-28T10:10:38.652+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438652 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists study_applicant cascade 
+
+    drop table if exists study_applicant cascade ;
+Hibernate: 
+    drop table if exists study_comment cascade 
+2025-08-28T10:10:38.653+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438653 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists study_comment cascade 
+
+    drop table if exists study_comment cascade ;
+Hibernate: 
+    drop table if exists study_comment_likes cascade 
+2025-08-28T10:10:38.653+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438653 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists study_comment_likes cascade 
+
+    drop table if exists study_comment_likes cascade ;
+Hibernate: 
+    drop table if exists study_mate cascade 
+2025-08-28T10:10:38.653+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438653 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists study_mate cascade 
+
+    drop table if exists study_mate cascade ;
+Hibernate: 
+    drop table if exists term cascade 
+2025-08-28T10:10:38.653+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438653 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists term cascade 
+
+    drop table if exists term cascade ;
+Hibernate: 
+    drop table if exists term_agree cascade 
+2025-08-28T10:10:38.653+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438653 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists term_agree cascade 
+
+    drop table if exists term_agree cascade ;
+Hibernate: 
+    drop table if exists token cascade 
+2025-08-28T10:10:38.654+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438654 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists token cascade 
+
+    drop table if exists token cascade ;
+Hibernate: 
+    drop table if exists user_assignment cascade 
+2025-08-28T10:10:38.654+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438654 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists user_assignment cascade 
+
+    drop table if exists user_assignment cascade ;
+Hibernate: 
+    drop table if exists users cascade 
+2025-08-28T10:10:38.654+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438654 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists users cascade 
+
+    drop table if exists users cascade ;
+Hibernate: 
+    drop table if exists uuid cascade 
+2025-08-28T10:10:38.654+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438654 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists uuid cascade 
+
+    drop table if exists uuid cascade ;
+Hibernate: 
+    drop table if exists weekly_user_progress cascade 
+2025-08-28T10:10:38.654+09:00  INFO 4669 --- [           main] p6spy                                    : #1756343438654 | took 0ms | statement | connection 4| url jdbc:h2:mem:testdb
+
+    drop table if exists weekly_user_progress cascade 
+
+    drop table if exists weekly_user_progress cascade ;
+2025-08-28T10:10:38.655+09:00  INFO 4669 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-28T10:10:38.656+09:00  INFO 4669 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-28T10:10:38.659+09:00  INFO 4669 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-28T10:10:38.667+09:00  INFO 4669 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-28T10:10:38.684+09:00 ERROR 4669 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method setFilterChains in org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration required a bean of type 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository' in your configuration.
+

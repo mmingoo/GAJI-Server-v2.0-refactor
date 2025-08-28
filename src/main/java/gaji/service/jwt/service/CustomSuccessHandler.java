@@ -3,7 +3,7 @@ package gaji.service.jwt.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gaji.service.jwt.entity.RefreshEntity;
 import gaji.service.jwt.filter.JWTUtil;
-import gaji.service.jwt.rpository.RefreshRepository;
+import gaji.service.jwt.repository.RefreshRepository;
 import gaji.service.oauth2.dto.CustomOAuth2User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;

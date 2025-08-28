@@ -14,7 +14,14 @@ spring:
       ddl-auto: create-drop
     show-sql: true
 
+jwt:
+  secret: myJwtSecretKey123456789!@#$%^&*()
+
 cloud:
   aws:
     s3:
       enabled: false  # 비활성화
+
+
+redirectionUrl: "http://localhost:3000/auth/success"
+nicknameRedirectionUrl: "http://localhost:3000/auth/success"

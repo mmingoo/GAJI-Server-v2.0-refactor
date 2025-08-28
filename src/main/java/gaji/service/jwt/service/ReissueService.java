@@ -2,7 +2,7 @@ package gaji.service.jwt.service;
 
 import gaji.service.jwt.entity.RefreshEntity;
 import gaji.service.jwt.filter.JWTUtil;
-import gaji.service.jwt.rpository.RefreshRepository;
+import gaji.service.jwt.repository.RefreshRepository;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

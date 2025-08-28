@@ -3,7 +3,7 @@ package gaji.service.config;
 import gaji.service.jwt.filter.CustomLogoutFilter;
 import gaji.service.jwt.filter.JWTFilter;
 import gaji.service.jwt.filter.JWTUtil;
-import gaji.service.jwt.rpository.RefreshRepository;
+import gaji.service.jwt.repository.RefreshRepository;
 import gaji.service.jwt.service.CustomSuccessHandler;
 import gaji.service.oauth2.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;

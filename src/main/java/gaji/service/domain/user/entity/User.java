@@ -86,7 +86,7 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeeklyUserProgress> weeklyUserProgressList;
 
-    @ColumnDefault("가지돌이")
+    @ColumnDefault("'가지돌이'")
     private String nickname;
 
     @Enumerated(EnumType.STRING)
