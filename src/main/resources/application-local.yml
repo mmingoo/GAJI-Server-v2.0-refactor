@@ -1,0 +1,38 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gaji-service-dev
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/FREE
+    username: SYSTEM
+    password: oracle123  # Oracle DB 비밀번호로 변경
+    config:
+      import: classpath:application.yml
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.OracleDialect  # Oracle 방언 설정
+
+cloud:
+  aws:
+    credentials:
+      accessKey: dummy
+      secretKey: dummy
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: dummy-bucket
+      enabled: false  # 비활성화
+      path:
+        blog: blog/
+        project: project/
+        question: question/
+        study: study/
